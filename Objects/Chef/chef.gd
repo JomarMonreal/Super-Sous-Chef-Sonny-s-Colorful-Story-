@@ -2,8 +2,12 @@ extends CharacterBody2D
 class_name Chef
 
 
-@onready var states: SpiderStateManager = $StateManager
+@onready var states: ChefStateManager = $ChefStateManager
+@onready var character_movement: SideScrollingMovement = $SideScrollingMovement
 
+func _ready() -> void:
+	states.init(self)
+	
 func _process(delta: float) -> void:
 	states.process(delta)
 

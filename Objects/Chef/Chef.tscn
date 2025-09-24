@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ce0unrlovwwyi"]
+[gd_scene load_steps=9 format=3 uid="uid://ce0unrlovwwyi"]
 
 [ext_resource type="Script" uid="uid://bi3gflgcsroe4" path="res://Objects/Chef/chef.gd" id="1_bh4l4"]
 [ext_resource type="Script" uid="uid://b2p5g7u0f5l02" path="res://Objects/Chef/chef_state_manager.gd" id="1_lp5fg"]
-[ext_resource type="Script" uid="uid://de7y5t12p5ii5" path="res://Base/base_state.gd" id="2_oqiy4"]
+[ext_resource type="Script" uid="uid://c3xdbbuxx3krw" path="res://Base/side_scolling_movement.gd" id="2_akdlw"]
 [ext_resource type="Texture2D" uid="uid://bw4wjt5dd4knb" path="res://icon.svg" id="2_pgac2"]
 [ext_resource type="Script" uid="uid://o5vhtbu5u4ws" path="res://Objects/Chef/States/chef_idle.gd" id="4_akdlw"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7gnl4"]
+[ext_resource type="Script" uid="uid://bnm2fcuaw7xa2" path="res://Objects/Chef/chef_move.gd" id="6_7gnl4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nokob"]
 animations = [{
@@ -22,22 +21,40 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pgac2"]
+radius = 15.206186
+height = 31.958765
+
 [node name="Chef" type="CharacterBody2D"]
 script = ExtResource("1_bh4l4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_7gnl4")
+[node name="SideScrollingMovement" type="Node" parent="."]
+script = ExtResource("2_akdlw")
+SPEED = 500.0
+metadata/_custom_type_script = "uid://c3xdbbuxx3krw"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nokob")
 
-[node name="SpiderStateManager" type="Node" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3.88, 3.88)
+shape = SubResource("CapsuleShape2D_pgac2")
+
+[node name="ChefStateManager" type="Node" parent="."]
 script = ExtResource("1_lp5fg")
 metadata/_custom_type_script = "uid://otglw13nao5r"
 
-[node name="Idle" type="Node" parent="SpiderStateManager"]
+[node name="Idle" type="Node" parent="ChefStateManager"]
 script = ExtResource("4_akdlw")
 
-[node name="Move" type="Node" parent="SpiderStateManager"]
-script = ExtResource("2_oqiy4")
+[node name="Moving" type="Node" parent="ChefStateManager"]
+script = ExtResource("6_7gnl4")
 metadata/_custom_type_script = "uid://de7y5t12p5ii5"
+
+[node name="Jumping" type="Node" parent="ChefStateManager"]
+
+[node name="Hurt" type="Node" parent="ChefStateManager"]
+
+[node name="Dashing" type="Node" parent="ChefStateManager"]
+
+[node name="Dead" type="Node" parent="ChefStateManager"]

@@ -1,3 +1,25 @@
-[gd_scene format=3 uid="uid://bpuroer1onh7n"]
+[gd_scene load_steps=4 format=3 uid="uid://bpuroer1onh7n"]
+
+[ext_resource type="PackedScene" uid="uid://ce0unrlovwwyi" path="res://Objects/Chef/Chef.tscn" id="1_vo8sw"]
+[ext_resource type="Texture2D" uid="uid://bw4wjt5dd4knb" path="res://icon.svg" id="2_883nb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vo8sw"]
 
 [node name="Node" type="Node"]
+
+[node name="Chef" parent="." instance=ExtResource("1_vo8sw")]
+
+[node name="Camera2D" type="Camera2D" parent="Chef"]
+position = Vector2(3, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(25, 400)
+scale = Vector2(14.600004, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("2_883nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
