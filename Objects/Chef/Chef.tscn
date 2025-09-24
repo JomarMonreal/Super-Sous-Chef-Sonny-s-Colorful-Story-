@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://ce0unrlovwwyi"]
+[gd_scene load_steps=11 format=3 uid="uid://ce0unrlovwwyi"]
 
 [ext_resource type="Script" uid="uid://bi3gflgcsroe4" path="res://Objects/Chef/chef.gd" id="1_bh4l4"]
 [ext_resource type="Script" uid="uid://b2p5g7u0f5l02" path="res://Objects/Chef/chef_state_manager.gd" id="1_lp5fg"]
 [ext_resource type="Script" uid="uid://c3xdbbuxx3krw" path="res://Base/side_scolling_movement.gd" id="2_akdlw"]
 [ext_resource type="Texture2D" uid="uid://bw4wjt5dd4knb" path="res://icon.svg" id="2_pgac2"]
+[ext_resource type="Script" uid="uid://b73pwrvuoh0f6" path="res://Base/dash_controller.gd" id="3_7gnl4"]
 [ext_resource type="Script" uid="uid://o5vhtbu5u4ws" path="res://Objects/Chef/States/chef_idle.gd" id="4_akdlw"]
 [ext_resource type="Script" uid="uid://bnm2fcuaw7xa2" path="res://Objects/Chef/chef_move.gd" id="6_7gnl4"]
+[ext_resource type="Script" uid="uid://dpnog1gvekj11" path="res://Objects/Chef/chef_dashing.gd" id="7_akdlw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nokob"]
 animations = [{
@@ -32,6 +34,13 @@ script = ExtResource("1_bh4l4")
 script = ExtResource("2_akdlw")
 metadata/_custom_type_script = "uid://c3xdbbuxx3krw"
 
+[node name="DashController" type="Node" parent="."]
+script = ExtResource("3_7gnl4")
+dash_distance = 500.0
+
+[node name="DashingCooldownTimer" type="Timer" parent="DashController"]
+wait_time = 0.5
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nokob")
 
@@ -50,10 +59,13 @@ script = ExtResource("4_akdlw")
 script = ExtResource("6_7gnl4")
 metadata/_custom_type_script = "uid://de7y5t12p5ii5"
 
+[node name="Dashing" type="Node" parent="ChefStateManager"]
+script = ExtResource("7_akdlw")
+
 [node name="Jumping" type="Node" parent="ChefStateManager"]
 
 [node name="Hurt" type="Node" parent="ChefStateManager"]
 
-[node name="Dashing" type="Node" parent="ChefStateManager"]
-
 [node name="Dead" type="Node" parent="ChefStateManager"]
+
+[connection signal="timeout" from="DashController/DashingCooldownTimer" to="DashController" method="_on_dashing_cooldown_timer_timeout"]

@@ -10,6 +10,7 @@ class_name SideScrollingMovement
 @export var SPEED: float = 1000.0
 
 var controlled_body: CharacterBody2D
+var facing: int = 1
 var _is_jumping: bool = false
 var _jump_held_time: float = 0.0
 
@@ -19,14 +20,14 @@ func _ready() -> void:
 	else:
 		push_error("SideScrollingMovement must be a child of a CharacterBody2D node.")
 
-func _physics_process(delta: float) -> void:
+func move(delta: float) -> void:
 	# --- Jump start / state ---
-	if Input.is_action_just_pressed("ui_accept") and controlled_body.is_on_floor():
+	if Input.is_action_just_pressed("ui_up") and controlled_body.is_on_floor():
 		controlled_body.velocity.y = JUMP_VELOCITY
 		_is_jumping = true
 		_jump_held_time = 0.0
 
-	if Input.is_action_just_released("ui_accept"):
+	if Input.is_action_just_released("ui_up"):
 		_is_jumping = false
 
 	# --- Gravity with variable-height logic ---
@@ -34,7 +35,7 @@ func _physics_process(delta: float) -> void:
 
 	if controlled_body.velocity.y < 0.0:
 		# Ascending.
-		if _is_jumping and Input.is_action_pressed("ui_accept") and _jump_held_time < MAX_JUMP_HOLD_TIME:
+		if _is_jumping and Input.is_action_pressed("ui_up") and _jump_held_time < MAX_JUMP_HOLD_TIME:
 			gravity_scale = JUMP_HOLD_GRAVITY_SCALE
 			_jump_held_time += delta
 		else:
@@ -54,6 +55,7 @@ func _physics_process(delta: float) -> void:
 	# --- Horizontal movement ---
 	var direction: float = Input.get_axis("ui_left", "ui_right")
 	if direction != 0.0:
+		facing = -1 if direction < 0 else 1
 		controlled_body.velocity.x = direction * SPEED
 	else:
 		# Smooth deceleration; scale by delta.
