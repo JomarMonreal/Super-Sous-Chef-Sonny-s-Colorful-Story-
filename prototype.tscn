@@ -11,6 +11,8 @@
 
 [node name="Camera2D" type="Camera2D" parent="Chef"]
 position = Vector2(3, 0)
+offset = Vector2(0, -50)
+zoom = Vector2(0.625, 0.625)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(25, 400)

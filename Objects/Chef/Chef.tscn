@@ -30,7 +30,6 @@ script = ExtResource("1_bh4l4")
 
 [node name="SideScrollingMovement" type="Node" parent="."]
 script = ExtResource("2_akdlw")
-SPEED = 500.0
 metadata/_custom_type_script = "uid://c3xdbbuxx3krw"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
