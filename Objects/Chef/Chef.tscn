@@ -1,50 +1,116 @@
-[gd_scene load_steps=11 format=3 uid="uid://ce0unrlovwwyi"]
+[gd_scene load_steps=24 format=3 uid="uid://ce0unrlovwwyi"]
 
 [ext_resource type="Script" uid="uid://bi3gflgcsroe4" path="res://Objects/Chef/chef.gd" id="1_bh4l4"]
 [ext_resource type="Script" uid="uid://b2p5g7u0f5l02" path="res://Objects/Chef/chef_state_manager.gd" id="1_lp5fg"]
 [ext_resource type="Script" uid="uid://c3xdbbuxx3krw" path="res://Base/side_scolling_movement.gd" id="2_akdlw"]
-[ext_resource type="Texture2D" uid="uid://bw4wjt5dd4knb" path="res://icon.svg" id="2_pgac2"]
 [ext_resource type="Script" uid="uid://b73pwrvuoh0f6" path="res://Base/dash_controller.gd" id="3_7gnl4"]
 [ext_resource type="Script" uid="uid://o5vhtbu5u4ws" path="res://Objects/Chef/States/chef_idle.gd" id="4_akdlw"]
+[ext_resource type="Texture2D" uid="uid://8qwx0m6u163g" path="res://Objects/Chef/Sprites/Idle/tile000.png" id="4_ubuq4"]
+[ext_resource type="Texture2D" uid="uid://ttvljl2a7t3i" path="res://Objects/Chef/Sprites/Idle/tile001.png" id="5_igld8"]
+[ext_resource type="Texture2D" uid="uid://djqkkjyii1iie" path="res://Objects/Chef/Sprites/Idle/tile002.png" id="6_0vyea"]
 [ext_resource type="Script" uid="uid://bnm2fcuaw7xa2" path="res://Objects/Chef/chef_move.gd" id="6_7gnl4"]
+[ext_resource type="Texture2D" uid="uid://hjp1edfld742" path="res://Objects/Chef/Sprites/Idle/tile003.png" id="7_6ejpl"]
 [ext_resource type="Script" uid="uid://dpnog1gvekj11" path="res://Objects/Chef/chef_dashing.gd" id="7_akdlw"]
+[ext_resource type="Texture2D" uid="uid://bcaga0i8wfegq" path="res://Objects/Chef/Sprites/Idle/tile004.png" id="8_pex6l"]
+[ext_resource type="Texture2D" uid="uid://74lohpcuv223" path="res://Objects/Chef/Sprites/Idle/tile005.png" id="9_yscw8"]
+[ext_resource type="Texture2D" uid="uid://cwq5d3nuwpyxc" path="res://Objects/Chef/Sprites/Walk/tile000.png" id="10_myb8i"]
+[ext_resource type="Texture2D" uid="uid://drfluc34gt31a" path="res://Objects/Chef/Sprites/Walk/tile001.png" id="11_yjrt3"]
+[ext_resource type="Texture2D" uid="uid://clj3maw1sb2s3" path="res://Objects/Chef/Sprites/Walk/tile002.png" id="12_nu8pr"]
+[ext_resource type="Texture2D" uid="uid://bcdwcdyy5bu3j" path="res://Objects/Chef/Sprites/Walk/tile003.png" id="13_e3vyr"]
+[ext_resource type="Texture2D" uid="uid://cm5b7p85p1gny" path="res://Objects/Chef/Sprites/Walk/tile004.png" id="14_vlq3j"]
+[ext_resource type="Texture2D" uid="uid://b1fjnjic7odq5" path="res://Objects/Chef/Sprites/Walk/tile005.png" id="15_1ht0x"]
+[ext_resource type="Texture2D" uid="uid://bl4o3qy55c5sk" path="res://Objects/Chef/Sprites/Walk/tile006.png" id="16_uxhdq"]
+[ext_resource type="Texture2D" uid="uid://dd0606atgonn1" path="res://Objects/Chef/Sprites/Walk/tile007.png" id="17_qdofp"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_nokob"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_v6i6m"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_pgac2")
+"texture": ExtResource("4_ubuq4")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_pgac2")
+"texture": ExtResource("5_igld8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0vyea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6ejpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pex6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yscw8")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_myb8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_yjrt3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nu8pr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_e3vyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_vlq3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_1ht0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_uxhdq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_qdofp")
+}],
+"loop": true,
+"name": &"Walk",
 "speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pgac2"]
-radius = 15.206186
-height = 31.958765
+radius = 1.0309279
+height = 5.1546392
 
 [node name="Chef" type="CharacterBody2D"]
 script = ExtResource("1_bh4l4")
 
 [node name="SideScrollingMovement" type="Node" parent="."]
 script = ExtResource("2_akdlw")
+GRAVITY = 1000.0
+JUMP_HOLD_GRAVITY_SCALE = 0.25
+JUMP_VELOCITY = -200.0
+MAX_JUMP_HOLD_TIME = 0.35
+SPEED = 100.0
+visual_path = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://c3xdbbuxx3krw"
 
 [node name="DashController" type="Node" parent="."]
 script = ExtResource("3_7gnl4")
-dash_distance = 500.0
+dash_distance = 100.0
+dash_speed = 4000.0
 
 [node name="DashingCooldownTimer" type="Timer" parent="DashController"]
 wait_time = 0.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_nokob")
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_v6i6m")
+animation = &"Walk"
+autoplay = "Idle"
+speed_scale = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.0000002)
 scale = Vector2(3.88, 3.88)
 shape = SubResource("CapsuleShape2D_pgac2")
 

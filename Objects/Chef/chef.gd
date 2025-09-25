@@ -5,6 +5,7 @@ class_name Chef
 @onready var states: ChefStateManager = $ChefStateManager
 @onready var character_movement: SideScrollingMovement = $SideScrollingMovement
 @onready var dash_controller: DashController = $DashController
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
 	states.init(self)

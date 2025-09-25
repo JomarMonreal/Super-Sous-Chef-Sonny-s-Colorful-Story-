@@ -2,8 +2,9 @@ extends ChefBaseState
 
 
 # Called when the node enters the scene tree for the first time.
-func ready() -> int:
-	return ChefBaseState.State.Idle
+func enter() -> void:
+	var chef := entity as Chef
+	chef.sprite.play("Idle")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
