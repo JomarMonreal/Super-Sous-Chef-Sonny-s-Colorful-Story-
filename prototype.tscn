@@ -28,7 +28,7 @@ scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(-126, 112)
+position = Vector2(-213, 112)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
@@ -48,3 +48,5 @@ texture = ExtResource("2_883nb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
+
+[connection signal="dashing" from="Chef" to="Camera2D" method="_on_chef_dashing"]

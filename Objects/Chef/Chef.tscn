@@ -1,14 +1,17 @@
-[gd_scene load_steps=24 format=3 uid="uid://ce0unrlovwwyi"]
+[gd_scene load_steps=29 format=3 uid="uid://ce0unrlovwwyi"]
 
 [ext_resource type="Script" uid="uid://bi3gflgcsroe4" path="res://Objects/Chef/chef.gd" id="1_bh4l4"]
 [ext_resource type="Script" uid="uid://b2p5g7u0f5l02" path="res://Objects/Chef/chef_state_manager.gd" id="1_lp5fg"]
 [ext_resource type="Script" uid="uid://c3xdbbuxx3krw" path="res://Base/side_scolling_movement.gd" id="2_akdlw"]
 [ext_resource type="Script" uid="uid://b73pwrvuoh0f6" path="res://Base/dash_controller.gd" id="3_7gnl4"]
 [ext_resource type="Script" uid="uid://o5vhtbu5u4ws" path="res://Objects/Chef/States/chef_idle.gd" id="4_akdlw"]
+[ext_resource type="Texture2D" uid="uid://hrdsy0p7yfb7" path="res://Objects/Chef/Sprites/Dash/tile000.png" id="4_fby8n"]
 [ext_resource type="Texture2D" uid="uid://8qwx0m6u163g" path="res://Objects/Chef/Sprites/Idle/tile000.png" id="4_ubuq4"]
 [ext_resource type="Texture2D" uid="uid://ttvljl2a7t3i" path="res://Objects/Chef/Sprites/Idle/tile001.png" id="5_igld8"]
 [ext_resource type="Texture2D" uid="uid://djqkkjyii1iie" path="res://Objects/Chef/Sprites/Idle/tile002.png" id="6_0vyea"]
+[ext_resource type="Texture2D" uid="uid://bi02g8i3adenr" path="res://Objects/Chef/Sprites/Dash/tile002.png" id="6_6oj22"]
 [ext_resource type="Script" uid="uid://bnm2fcuaw7xa2" path="res://Objects/Chef/chef_move.gd" id="6_7gnl4"]
+[ext_resource type="Texture2D" uid="uid://dw84fs37r3yiq" path="res://Objects/Chef/Sprites/Dash/tile003.png" id="7_0djbx"]
 [ext_resource type="Texture2D" uid="uid://hjp1edfld742" path="res://Objects/Chef/Sprites/Idle/tile003.png" id="7_6ejpl"]
 [ext_resource type="Script" uid="uid://dpnog1gvekj11" path="res://Objects/Chef/chef_dashing.gd" id="7_akdlw"]
 [ext_resource type="Texture2D" uid="uid://bcaga0i8wfegq" path="res://Objects/Chef/Sprites/Idle/tile004.png" id="8_pex6l"]
@@ -22,8 +25,51 @@
 [ext_resource type="Texture2D" uid="uid://bl4o3qy55c5sk" path="res://Objects/Chef/Sprites/Walk/tile006.png" id="16_uxhdq"]
 [ext_resource type="Texture2D" uid="uid://dd0606atgonn1" path="res://Objects/Chef/Sprites/Walk/tile007.png" id="17_qdofp"]
 
+[sub_resource type="Shader" id="Shader_myb8i"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the CanvasItem.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yjrt3"]
+shader = SubResource("Shader_myb8i")
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_v6i6m"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fby8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6oj22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0djbx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0djbx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0djbx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6oj22")
+}],
+"loop": false,
+"name": &"Dash",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_ubuq4")
@@ -97,15 +143,16 @@ metadata/_custom_type_script = "uid://c3xdbbuxx3krw"
 [node name="DashController" type="Node" parent="."]
 script = ExtResource("3_7gnl4")
 dash_distance = 100.0
-dash_speed = 4000.0
+dash_speed = 1000.0
 
 [node name="DashingCooldownTimer" type="Timer" parent="DashController"]
 wait_time = 0.5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_yjrt3")
 sprite_frames = SubResource("SpriteFrames_v6i6m")
-animation = &"Walk"
+animation = &"Dash"
 autoplay = "Idle"
 speed_scale = 4.0
 
@@ -134,4 +181,5 @@ script = ExtResource("7_akdlw")
 
 [node name="Dead" type="Node" parent="ChefStateManager"]
 
+[connection signal="dash_start" from="DashController" to="." method="_on_dash_controller_dash_start"]
 [connection signal="timeout" from="DashController/DashingCooldownTimer" to="DashController" method="_on_dashing_cooldown_timer_timeout"]
