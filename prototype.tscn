@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpuroer1onh7n"]
+[gd_scene load_steps=6 format=3 uid="uid://bpuroer1onh7n"]
 
 [ext_resource type="Script" uid="uid://x4447en66rdk" path="res://Base/target_following_camera.gd" id="1_883nb"]
 [ext_resource type="PackedScene" uid="uid://ce0unrlovwwyi" path="res://Objects/Chef/Chef.tscn" id="1_vo8sw"]
 [ext_resource type="Texture2D" uid="uid://bw4wjt5dd4knb" path="res://icon.svg" id="2_883nb"]
+[ext_resource type="PackedScene" uid="uid://b3xlln5mop84s" path="res://Objects/Enemy/Enemy.tscn" id="3_7fmhn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vo8sw"]
 
@@ -16,14 +17,29 @@ target = NodePath("../Chef")
 
 [node name="Chef" parent="." instance=ExtResource("1_vo8sw")]
 
+[node name="Enemy" parent="." instance=ExtResource("3_7fmhn")]
+position = Vector2(120, 10.999999)
+scale = Vector2(0.105, 0.105)
+
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(2, 112)
+position = Vector2(3, 82)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
 texture = ExtResource("2_883nb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(258, 81)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5"]
+texture = ExtResource("2_883nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
 

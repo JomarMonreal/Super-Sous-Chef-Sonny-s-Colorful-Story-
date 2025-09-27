@@ -11,12 +11,12 @@ class_name SideScrollingMovement
 
 # Assign your Sprite2D or AnimatedSprite2D here in the inspector.
 @export var visual_path: NodePath
+var _visual: Node = null
 
 var controlled_body: CharacterBody2D
 var facing: int = 1
 var _is_jumping: bool = false
 var _jump_held_time: float = 0.0
-var _visual: Node = null
 
 func _ready() -> void:
 	if owner is CharacterBody2D:
