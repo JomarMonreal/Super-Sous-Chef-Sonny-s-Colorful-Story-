@@ -14,6 +14,9 @@ func process(delta: float) -> int:
 	if Input.is_action_just_pressed("ui_accept"):
 		return ChefBaseState.State.Dashing
 		
+	if Input.is_action_just_pressed("ui_up"):
+		return ChefBaseState.State.Jumping
+		
 	if chef.velocity.x == 0 and chef.velocity.y == 0:
 		return ChefBaseState.State.Idle
 		
