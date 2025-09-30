@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmvyrsj3go0ly"]
+
+[ext_resource type="Script" uid="uid://dtpi6tc4q2s1w" path="res://Base/one_directional_movement.gd" id="1_7ufng"]
+[ext_resource type="Texture2D" uid="uid://ceq74qptr55a8" path="res://Objects/Bullet/tile024.png" id="2_exh57"]
+[ext_resource type="Texture2D" uid="uid://cq0h0hdfu86jf" path="res://Objects/Bullet/tile025.png" id="3_qtect"]
+[ext_resource type="Texture2D" uid="uid://bl6fj1okdmwf4" path="res://Objects/Bullet/tile026.png" id="4_j8gvf"]
+[ext_resource type="Texture2D" uid="uid://bwb1s48byscnj" path="res://Objects/Bullet/tile027.png" id="5_226k8"]
+[ext_resource type="Texture2D" uid="uid://x5he032axypd" path="res://Objects/Bullet/tile028.png" id="6_jawdq"]
+[ext_resource type="Texture2D" uid="uid://xq1bmwkl802a" path="res://Objects/Bullet/tile029.png" id="7_ip2ne"]
+[ext_resource type="Texture2D" uid="uid://dplpa5i7fej5i" path="res://Objects/Bullet/tile030.png" id="8_cpcsf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qxpxm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_exh57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qtect")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j8gvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_226k8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jawdq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ip2ne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cpcsf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4qb7y"]
+radius = 1.9999998
+height = 8.0
+
+[node name="Bullet" type="RigidBody2D"]
+gravity_scale = 0.0
+
+[node name="OneDirectionalMovement" type="Node" parent="."]
+script = ExtResource("1_7ufng")
+is_randomized = false
+direction = Vector2(1, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qxpxm")
+autoplay = "default"
+frame_progress = 0.056018244
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 3)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_4qb7y")
+
+[connection signal="body_entered" from="." to="OneDirectionalMovement" method="_on_bullet_body_entered"]
+[connection signal="body_shape_entered" from="." to="OneDirectionalMovement" method="_on_bullet_body_shape_entered"]

@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpuroer1onh7n"]
+[gd_scene load_steps=11 format=3 uid="uid://bpuroer1onh7n"]
 
 [ext_resource type="Script" uid="uid://x4447en66rdk" path="res://Base/target_following_camera.gd" id="1_883nb"]
 [ext_resource type="PackedScene" uid="uid://ce0unrlovwwyi" path="res://Objects/Chef/Chef.tscn" id="1_vo8sw"]
 [ext_resource type="Texture2D" uid="uid://bw4wjt5dd4knb" path="res://icon.svg" id="2_883nb"]
 [ext_resource type="PackedScene" uid="uid://cjva2rt8jb4jq" path="res://Objects/Enemy/Scenes/GreenEnemy.tscn" id="4_7fmhn"]
 [ext_resource type="PackedScene" uid="uid://buf87qq5mutkk" path="res://Objects/Enemy/Scenes/RedEnemy.tscn" id="5_mbk3n"]
+[ext_resource type="PackedScene" uid="uid://ctkwel4o053ls" path="res://Objects/Enemy/Scenes/YellowEnemy.tscn" id="6_1ixuk"]
+[ext_resource type="PackedScene" uid="uid://bllhatsjhxu8h" path="res://Objects/Enemy/Scenes/BlueEnemy.tscn" id="7_8y2k3"]
+[ext_resource type="PackedScene" uid="uid://bo7lh60tiloe4" path="res://Objects/Enemy/Scenes/PurpleEnemy.tscn" id="8_1hs15"]
+[ext_resource type="PackedScene" uid="uid://djx4r5pffn40l" path="res://Objects/Enemy/Scenes/OrangeEnemy.tscn" id="9_bk8nm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vo8sw"]
 
@@ -40,6 +44,61 @@ texture = ExtResource("2_883nb")
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
 
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+position = Vector2(514, 88)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D8"]
+texture = ExtResource("2_883nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="StaticBody2D13" type="StaticBody2D" parent="."]
+position = Vector2(642, 117)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D13"]
+texture = ExtResource("2_883nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D13"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="StaticBody2D14" type="StaticBody2D" parent="."]
+position = Vector2(771, 117)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D14"]
+texture = ExtResource("2_883nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D14"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="StaticBody2D15" type="StaticBody2D" parent="."]
+position = Vector2(898, 82)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D15"]
+texture = ExtResource("2_883nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D15"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+position = Vector2(386, 113)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D7"]
+texture = ExtResource("2_883nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2(-125, 113)
 metadata/_edit_group_ = true
@@ -62,6 +121,50 @@ texture = ExtResource("2_883nb")
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
 
+[node name="StaticBody2D9" type="StaticBody2D" parent="."]
+position = Vector2(-382, 111)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D9"]
+texture = ExtResource("2_883nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="."]
+position = Vector2(-510, 82)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D10"]
+texture = ExtResource("2_883nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="."]
+position = Vector2(-638, 114)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D11"]
+texture = ExtResource("2_883nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D11"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="StaticBody2D12" type="StaticBody2D" parent="."]
+position = Vector2(-766, 84)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D12"]
+texture = ExtResource("2_883nb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D12"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 position = Vector2(131, 112)
 metadata/_edit_group_ = true
@@ -78,5 +181,17 @@ position = Vector2(121, 30)
 
 [node name="RedEnemy" parent="." instance=ExtResource("5_mbk3n")]
 position = Vector2(-127, 27)
+
+[node name="YellowEnemy" parent="." instance=ExtResource("6_1ixuk")]
+position = Vector2(383, 30)
+
+[node name="BlueEnemy" parent="." instance=ExtResource("7_8y2k3")]
+position = Vector2(-356, 27)
+
+[node name="PurpleEnemy" parent="." instance=ExtResource("8_1hs15")]
+position = Vector2(-633, 41)
+
+[node name="OrangeEnemy" parent="." instance=ExtResource("9_bk8nm")]
+position = Vector2(633, 36)
 
 [connection signal="dashing" from="Chef" to="Camera2D" method="_on_chef_dashing"]

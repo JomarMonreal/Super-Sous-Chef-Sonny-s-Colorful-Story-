@@ -1,0 +1,210 @@
+[gd_scene load_steps=35 format=3 uid="uid://bo7lh60tiloe4"]
+
+[ext_resource type="Script" uid="uid://1pys037seihn" path="res://Objects/Enemy/enemy.gd" id="1_qcsdd"]
+[ext_resource type="Script" uid="uid://dh0phk40nl2nm" path="res://Base/side_scrolling_walk_movement.gd" id="2_toqif"]
+[ext_resource type="PackedScene" uid="uid://drrdy0ylpjttb" path="res://Base/Scenes/dash_controller.tscn" id="3_tenx1"]
+[ext_resource type="Texture2D" uid="uid://cy1t3rwgil4eo" path="res://Objects/Enemy/Sprites/Purple/tile016.png" id="4_qcsdd"]
+[ext_resource type="Texture2D" uid="uid://dtebtdkkr420c" path="res://Objects/Enemy/Sprites/Purple/tile017.png" id="5_toqif"]
+[ext_resource type="Texture2D" uid="uid://qyeeuubll00v" path="res://Objects/Enemy/Sprites/Purple/tile018.png" id="6_tenx1"]
+[ext_resource type="Texture2D" uid="uid://c4ticsmjwtqcv" path="res://Objects/Enemy/Sprites/Purple/tile019.png" id="7_uel1i"]
+[ext_resource type="Texture2D" uid="uid://8tkabvhsq7yx" path="res://Objects/Enemy/Sprites/Purple/tile020.png" id="8_2igjf"]
+[ext_resource type="Texture2D" uid="uid://daoau1tj2gutl" path="res://Objects/Enemy/Sprites/Purple/tile021.png" id="9_eb0w8"]
+[ext_resource type="Texture2D" uid="uid://hgawyea16j0d" path="res://Objects/Enemy/Sprites/Purple/tile022.png" id="10_enx2h"]
+[ext_resource type="Texture2D" uid="uid://bpnoosn1xqagi" path="res://Objects/Enemy/Sprites/Purple/tile023.png" id="11_igc3u"]
+[ext_resource type="Texture2D" uid="uid://ctm7d6al6bsfy" path="res://Objects/Enemy/Sprites/Purple/tile008.png" id="12_iscef"]
+[ext_resource type="Texture2D" uid="uid://bstteuc2ubbmo" path="res://Objects/Enemy/Sprites/Purple/tile009.png" id="13_8e0i1"]
+[ext_resource type="Texture2D" uid="uid://dprp5gtrj2a1t" path="res://Objects/Enemy/Sprites/Purple/tile010.png" id="14_65150"]
+[ext_resource type="Texture2D" uid="uid://ddwbcqvq56tmj" path="res://Objects/Enemy/Sprites/Purple/tile011.png" id="15_7iupi"]
+[ext_resource type="Texture2D" uid="uid://e0k0653q3ywg" path="res://Objects/Enemy/Sprites/Purple/tile012.png" id="16_qph2p"]
+[ext_resource type="Texture2D" uid="uid://stevl76w5u2s" path="res://Objects/Enemy/Sprites/Purple/tile013.png" id="17_qne2o"]
+[ext_resource type="Texture2D" uid="uid://bjn4yevsx2o3i" path="res://Objects/Enemy/Sprites/Purple/tile014.png" id="18_rvexj"]
+[ext_resource type="Texture2D" uid="uid://cf6oc6oygyok1" path="res://Objects/Enemy/Sprites/Purple/tile015.png" id="19_rjwtc"]
+[ext_resource type="Texture2D" uid="uid://dwxfblu31har1" path="res://Objects/Enemy/Sprites/Purple/tile000.png" id="20_sr5u2"]
+[ext_resource type="Texture2D" uid="uid://cwcqp7kl3h1n8" path="res://Objects/Enemy/Sprites/Purple/tile001.png" id="21_xhoku"]
+[ext_resource type="Texture2D" uid="uid://hh3i4j8j3nit" path="res://Objects/Enemy/Sprites/Purple/tile002.png" id="22_64l5f"]
+[ext_resource type="Texture2D" uid="uid://cnv77w6epppoc" path="res://Objects/Enemy/Sprites/Purple/tile003.png" id="23_pxh46"]
+[ext_resource type="Texture2D" uid="uid://fpf8wwa11vvj" path="res://Objects/Enemy/Sprites/Purple/tile004.png" id="24_4j8co"]
+[ext_resource type="Texture2D" uid="uid://d36hrdd6oe6ib" path="res://Objects/Enemy/Sprites/Purple/tile005.png" id="25_cq5sc"]
+[ext_resource type="Texture2D" uid="uid://cdf8cw7tari47" path="res://Objects/Enemy/Sprites/Purple/tile006.png" id="26_gmvvm"]
+[ext_resource type="Texture2D" uid="uid://dd0eblj5jxufe" path="res://Objects/Enemy/Sprites/Purple/tile007.png" id="27_1vhtu"]
+[ext_resource type="Script" uid="uid://bcbgk1fp1jmr4" path="res://Objects/Enemy/enemy_state_manager.gd" id="28_31adp"]
+[ext_resource type="Script" uid="uid://bdqj8hl7k8x3e" path="res://Objects/Enemy/States/enemy_walk.gd" id="29_68xho"]
+[ext_resource type="Script" uid="uid://h1bl61hrk6cu" path="res://Objects/Enemy/enemy_attacking.gd" id="30_75mne"]
+[ext_resource type="Script" uid="uid://b0m6vfj64ub4" path="res://Objects/Enemy/enemy_guarding.gd" id="31_qeno5"]
+[ext_resource type="Script" uid="uid://b4e0c34megjsp" path="res://Objects/Enemy/enemy_state.gd" id="32_n8ig3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i2r1b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qcsdd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_toqif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tenx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uel1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qcsdd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tenx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_toqif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uel1i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2igjf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_eb0w8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_enx2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_igc3u")
+}],
+"loop": false,
+"name": &"Attacking",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_iscef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8e0i1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_65150")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_7iupi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qph2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_qne2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_rvexj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_rjwtc")
+}],
+"loop": true,
+"name": &"Guarding",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_sr5u2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_xhoku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_64l5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_pxh46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_4j8co")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_cq5sc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_gmvvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_1vhtu")
+}],
+"loop": true,
+"name": &"Moving",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3idve"]
+radius = 7.0
+height = 18.0
+
+[node name="PurpleEnemy" type="CharacterBody2D"]
+script = ExtResource("1_qcsdd")
+
+[node name="SideScrollingWalkMovement" type="Node2D" parent="." node_paths=PackedStringArray("left_ray", "right_ray")]
+script = ExtResource("2_toqif")
+left_ray = NodePath("../ObstacleLeftRay")
+right_ray = NodePath("../ObstacleRightRay")
+visual_path = NodePath("../AnimatedSprite2D")
+
+[node name="DashController" parent="." instance=ExtResource("3_tenx1")]
+dash_distance = 5.0
+dash_speed = 200.0
+dash_cooldown = 1.0
+dash_delay = 0.8
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_i2r1b")
+animation = &"Attacking"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 1)
+shape = SubResource("CapsuleShape2D_3idve")
+
+[node name="ObstacleRightRay" type="RayCast2D" parent="."]
+position = Vector2(7, 0)
+target_position = Vector2(14, 0)
+
+[node name="ObstacleLeftRay" type="RayCast2D" parent="."]
+position = Vector2(-8, 0)
+target_position = Vector2(-15, 0)
+
+[node name="EnemyRightRay" type="RayCast2D" parent="."]
+position = Vector2(7, 0)
+target_position = Vector2(18, 0)
+
+[node name="EnemyLeftRay" type="RayCast2D" parent="."]
+position = Vector2(-8, 0)
+target_position = Vector2(-21, 0)
+
+[node name="EnemyStateManager" type="Node" parent="."]
+script = ExtResource("28_31adp")
+metadata/_custom_type_script = "uid://otglw13nao5r"
+
+[node name="Moving" type="Node" parent="EnemyStateManager" node_paths=PackedStringArray("left_ray", "right_ray")]
+script = ExtResource("29_68xho")
+left_ray = NodePath("../../EnemyLeftRay")
+right_ray = NodePath("../../EnemyRightRay")
+metadata/_custom_type_script = "uid://b4e0c34megjsp"
+
+[node name="Attacking" type="Node" parent="EnemyStateManager"]
+script = ExtResource("30_75mne")
+metadata/_custom_type_script = "uid://b4e0c34megjsp"
+
+[node name="Guarding" type="Node" parent="EnemyStateManager"]
+script = ExtResource("31_qeno5")
+
+[node name="GuardDuration" type="Timer" parent="EnemyStateManager/Guarding"]
+wait_time = 2.0
+
+[node name="Hurt" type="Node" parent="EnemyStateManager"]
+script = ExtResource("32_n8ig3")
+metadata/_custom_type_script = "uid://b4e0c34megjsp"
+
+[node name="Dead" type="Node" parent="EnemyStateManager"]
+script = ExtResource("32_n8ig3")
+metadata/_custom_type_script = "uid://b4e0c34megjsp"
+
+[connection signal="timeout" from="EnemyStateManager/Guarding/GuardDuration" to="EnemyStateManager/Guarding" method="_on_guard_duration_timeout"]
