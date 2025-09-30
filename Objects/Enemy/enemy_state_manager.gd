@@ -4,6 +4,7 @@ class_name EnemyStateManager
 func _ready() -> void:
 	states = {
 		EnemyBaseState.State.Moving: $Moving,
+		EnemyBaseState.State.Guarding: $Guarding,
 		EnemyBaseState.State.Attaking: $Attacking,
 		EnemyBaseState.State.Hurt: $Hurt,
 		EnemyBaseState.State.Dead: $Dead,

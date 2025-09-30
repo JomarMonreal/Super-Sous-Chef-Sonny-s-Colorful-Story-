@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://drrdy0ylpjttb"]
+
+[ext_resource type="Script" uid="uid://b73pwrvuoh0f6" path="res://Base/dash_controller.gd" id="1_sprvn"]
+
+[node name="DashController" type="Node"]
+script = ExtResource("1_sprvn")
+dash_distance = 100.0
+dash_speed = 1000.0
+
+[node name="DashingCooldownTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="DashDelayTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DashingCooldownTimer" to="." method="_on_dashing_cooldown_timer_timeout"]
+[connection signal="timeout" from="DashDelayTimer" to="." method="_on_dash_delay_timer_timeout"]

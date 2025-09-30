@@ -3,7 +3,6 @@ extends Node2D
 
 @export var health = 100
 @export var damage = 10
-@export var speed = 500
 var is_hurt = false
 
 @onready var hurt_cooldown_timer: Timer = $HurtCooldownTimer

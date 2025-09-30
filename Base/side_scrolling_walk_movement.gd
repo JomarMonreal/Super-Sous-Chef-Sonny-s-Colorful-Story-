@@ -4,6 +4,7 @@ class_name SideScrollingWalkMovement
 @export var SPEED = 20.0
 @export var left_ray: RayCast2D
 @export var right_ray: RayCast2D
+@export var is_facing_right = true
 
 @export var visual_path: NodePath
 var _visual: Node = null
@@ -27,12 +28,12 @@ func _ready() -> void:
 	_set_facing(direction)
 
 func _set_facing(dir: int) -> void:
-	direction = dir
+	direction = dir 
 	# Flip only the visual; leave the body unscaled.
 	if _visual is Sprite2D:
 		(_visual as Sprite2D).flip_h = direction < 0
 	elif _visual is AnimatedSprite2D:
-		(_visual as AnimatedSprite2D).flip_h = direction < 0
+		(_visual as AnimatedSprite2D).flip_h = direction < 0 if is_facing_right else direction > 0
 	elif _visual is Node2D:
 		# Fallback if it's some other Node2D with zero rotation.
 		(_visual as Node2D).scale = Vector2(float(direction), 1.0)

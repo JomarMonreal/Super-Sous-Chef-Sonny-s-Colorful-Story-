@@ -1,9 +1,10 @@
-[gd_scene load_steps=41 format=3 uid="uid://ce0unrlovwwyi"]
+[gd_scene load_steps=42 format=3 uid="uid://ce0unrlovwwyi"]
 
 [ext_resource type="Script" uid="uid://bi3gflgcsroe4" path="res://Objects/Chef/chef.gd" id="1_bh4l4"]
 [ext_resource type="Script" uid="uid://b2p5g7u0f5l02" path="res://Objects/Chef/chef_state_manager.gd" id="1_lp5fg"]
 [ext_resource type="Script" uid="uid://c3xdbbuxx3krw" path="res://Base/side_scolling_movement.gd" id="2_akdlw"]
-[ext_resource type="Script" uid="uid://b73pwrvuoh0f6" path="res://Base/dash_controller.gd" id="3_7gnl4"]
+[ext_resource type="Script" uid="uid://csy5mdgalkyym" path="res://Base/health_controller.gd" id="3_16lfa"]
+[ext_resource type="PackedScene" uid="uid://drrdy0ylpjttb" path="res://Base/Scenes/dash_controller.tscn" id="4_16lfa"]
 [ext_resource type="Script" uid="uid://o5vhtbu5u4ws" path="res://Objects/Chef/States/chef_idle.gd" id="4_akdlw"]
 [ext_resource type="Texture2D" uid="uid://c5nsh2dd3ku6j" path="res://Objects/Chef/Sprites/DashV2/tile000.png" id="4_fby8n"]
 [ext_resource type="Texture2D" uid="uid://8qwx0m6u163g" path="res://Objects/Chef/Sprites/Idle/tile000.png" id="4_ubuq4"]
@@ -201,20 +202,22 @@ SPEED = 100.0
 visual_path = NodePath("../AnimatedSprite2D")
 metadata/_custom_type_script = "uid://c3xdbbuxx3krw"
 
-[node name="DashController" type="Node" parent="."]
-script = ExtResource("3_7gnl4")
-dash_distance = 100.0
-dash_speed = 1000.0
+[node name="HealthController" type="Node2D" parent="."]
+script = ExtResource("3_16lfa")
 
-[node name="DashingCooldownTimer" type="Timer" parent="DashController"]
-wait_time = 0.5
+[node name="HurtCooldownTimer" type="Timer" parent="HealthController"]
+
+[node name="DashController" parent="." instance=ExtResource("4_16lfa")]
+dash_distance = 80.0
+dash_cooldown = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 material = SubResource("ShaderMaterial_yjrt3")
 sprite_frames = SubResource("SpriteFrames_v6i6m")
-animation = &"Jumping"
+animation = &"Walk"
 autoplay = "Idle"
+frame_progress = 0.7178184
 speed_scale = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -246,5 +249,4 @@ script = ExtResource("32_0djbx")
 
 [node name="Dead" type="Node" parent="ChefStateManager"]
 
-[connection signal="dash_start" from="DashController" to="." method="_on_dash_controller_dash_start"]
-[connection signal="timeout" from="DashController/DashingCooldownTimer" to="DashController" method="_on_dashing_cooldown_timer_timeout"]
+[connection signal="timeout" from="HealthController/HurtCooldownTimer" to="HealthController" method="_on_hurt_cooldown_timer_timeout"]
