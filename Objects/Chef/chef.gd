@@ -27,10 +27,25 @@ func _on_dash_controller_dash_start() -> void:
 	emit_signal("dashing")
 
 
+
 func _on_hitbox_body_entered(body: Node2D) -> void:
+	if ((body is Enemy or body is Bullet) and !health_controller.is_hurt and !dash_controller.is_on_cooldown):
+		if body is Enemy:
+			health_controller.take_damage(1)
+			enemy_entered = body
+			
+			if health_controller.health <= 0:
+				return states.change_state(ChefBaseState.State.Dead)
+			states.change_state(ChefBaseState.State.Hurt)
+
+
+
+func _on_dash_controller_dash_interrupted(body: Node2D) -> void:
 	if ((body is Enemy or body is Bullet) and !health_controller.is_hurt):
 		if body is Enemy:
-			if dash_controller.is_dashing and body.states.current_state != body.states.states[EnemyBaseState.State.Guarding]:
+			enemy_entered = body
+			enemy_entered.collider_entered = self
+			if body.states.current_state != body.states.states[EnemyBaseState.State.Guarding]:
 				body.health_controller.take_damage(1)
 			else:
 				health_controller.take_damage(1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://djx4r5pffn40l"]
+[gd_scene load_steps=37 format=3 uid="uid://djx4r5pffn40l"]
 
 [ext_resource type="Script" uid="uid://1pys037seihn" path="res://Objects/Enemy/enemy.gd" id="1_msn7c"]
 [ext_resource type="Script" uid="uid://dh0phk40nl2nm" path="res://Base/side_scrolling_walk_movement.gd" id="2_irjtd"]
@@ -33,6 +33,7 @@
 [ext_resource type="Script" uid="uid://h1bl61hrk6cu" path="res://Objects/Enemy/States/enemy_attacking.gd" id="30_wovls"]
 [ext_resource type="Script" uid="uid://b0m6vfj64ub4" path="res://Objects/Enemy/States/enemy_guarding.gd" id="31_psw1n"]
 [ext_resource type="Script" uid="uid://b4e0c34megjsp" path="res://Objects/Enemy/enemy_state.gd" id="32_64gbi"]
+[ext_resource type="Script" uid="uid://ec84adcjxicg" path="res://Objects/Enemy/States/enemy_hurt.gd" id="33_ftw8t"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i2r1b"]
 animations = [{
@@ -139,6 +140,7 @@ is_facing_right = false
 visual_path = NodePath("../AnimatedSprite2D")
 
 [node name="HealthController" parent="." instance=ExtResource("3_irjtd")]
+health = 2
 
 [node name="DashController" parent="." instance=ExtResource("3_ftw8t")]
 dash_distance = 0.0
@@ -191,12 +193,14 @@ script = ExtResource("31_psw1n")
 wait_time = 2.0
 
 [node name="Hurt" type="Node" parent="EnemyStateManager"]
-script = ExtResource("32_64gbi")
+script = ExtResource("33_ftw8t")
 metadata/_custom_type_script = "uid://b4e0c34megjsp"
 
 [node name="Dead" type="Node" parent="EnemyStateManager"]
 script = ExtResource("32_64gbi")
 metadata/_custom_type_script = "uid://b4e0c34megjsp"
 
+[connection signal="damaged" from="HealthController" to="." method="_on_health_controller_damaged"]
+[connection signal="dead" from="HealthController" to="." method="_on_health_controller_dead"]
 [connection signal="dash_start" from="DashController" to="EnemyStateManager/Attacking" method="_on_dash_controller_dash_start"]
 [connection signal="timeout" from="EnemyStateManager/Guarding/GuardDuration" to="EnemyStateManager/Guarding" method="_on_guard_duration_timeout"]

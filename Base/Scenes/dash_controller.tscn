@@ -8,7 +8,7 @@ dash_distance = 100.0
 dash_speed = 1000.0
 
 [node name="DashingCooldownTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.25
 
 [node name="DashDelayTimer" type="Timer" parent="."]
 

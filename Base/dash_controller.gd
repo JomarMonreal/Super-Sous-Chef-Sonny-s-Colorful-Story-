@@ -18,6 +18,7 @@ var controlled_body: CharacterBody2D
 signal dash_start
 signal dash_finished
 signal cooldown_finished
+signal dash_interrupted(body: Node2D)
 
 @onready var cooldown_timer: Timer = $DashingCooldownTimer
 @onready var delay_timer: Timer = $DashDelayTimer
@@ -80,6 +81,7 @@ func process_dash(delta: float) -> void:
 	var collision := controlled_body.move_and_collide(motion)
 
 	if collision:
+		dash_interrupted.emit(collision.get_collider())
 		_finish_dash()
 		return
 

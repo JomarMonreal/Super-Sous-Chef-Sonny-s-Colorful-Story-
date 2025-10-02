@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b3xlln5mop84s"]
+[gd_scene load_steps=36 format=3 uid="uid://b3xlln5mop84s"]
 
 [ext_resource type="Script" uid="uid://1pys037seihn" path="res://Objects/Enemy/enemy.gd" id="1_y1cc8"]
 [ext_resource type="Script" uid="uid://dh0phk40nl2nm" path="res://Base/side_scrolling_walk_movement.gd" id="2_2r3xr"]
@@ -14,7 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://lv8wwu8fev2y" path="res://Objects/Enemy/Sprites/Green/tile023.png" id="10_wg5ps"]
 [ext_resource type="Script" uid="uid://bdqj8hl7k8x3e" path="res://Objects/Enemy/States/enemy_walk.gd" id="11_2r3xr"]
 [ext_resource type="Texture2D" uid="uid://cmyle68hccimj" path="res://Objects/Enemy/Sprites/Green/tile008.png" id="11_kaslg"]
-[ext_resource type="Script" uid="uid://b4e0c34megjsp" path="res://Objects/Enemy/enemy_state.gd" id="11_sbrxe"]
 [ext_resource type="Texture2D" uid="uid://bts207a2fqyh3" path="res://Objects/Enemy/Sprites/Green/tile009.png" id="12_1n2j4"]
 [ext_resource type="Texture2D" uid="uid://b2i5h50tmv6ha" path="res://Objects/Enemy/Sprites/Green/tile010.png" id="13_uift4"]
 [ext_resource type="Texture2D" uid="uid://cyd66yg4ry76h" path="res://Objects/Enemy/Sprites/Green/tile011.png" id="14_x85o4"]
@@ -32,6 +31,8 @@
 [ext_resource type="Texture2D" uid="uid://vk88imlvx34b" path="res://Objects/Enemy/Sprites/Green/tile007.png" id="26_v3fsn"]
 [ext_resource type="Script" uid="uid://h1bl61hrk6cu" path="res://Objects/Enemy/States/enemy_attacking.gd" id="29_5ccqh"]
 [ext_resource type="Script" uid="uid://b0m6vfj64ub4" path="res://Objects/Enemy/States/enemy_guarding.gd" id="31_nqhjh"]
+[ext_resource type="Script" uid="uid://ec84adcjxicg" path="res://Objects/Enemy/States/enemy_hurt.gd" id="32_ntf3j"]
+[ext_resource type="Script" uid="uid://emn72kkn1y2v" path="res://Objects/Enemy/dead.gd" id="33_ntf3j"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i2r1b"]
 animations = [{
@@ -185,11 +186,11 @@ script = ExtResource("31_nqhjh")
 wait_time = 2.0
 
 [node name="Hurt" type="Node" parent="EnemyStateManager"]
-script = ExtResource("11_sbrxe")
+script = ExtResource("32_ntf3j")
 metadata/_custom_type_script = "uid://b4e0c34megjsp"
 
 [node name="Dead" type="Node" parent="EnemyStateManager"]
-script = ExtResource("11_sbrxe")
+script = ExtResource("33_ntf3j")
 metadata/_custom_type_script = "uid://b4e0c34megjsp"
 
 [connection signal="timeout" from="EnemyStateManager/Guarding/GuardDuration" to="EnemyStateManager/Guarding" method="_on_guard_duration_timeout"]

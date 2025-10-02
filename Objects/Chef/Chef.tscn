@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://ce0unrlovwwyi"]
+[gd_scene load_steps=54 format=3 uid="uid://ce0unrlovwwyi"]
 
 [ext_resource type="Script" uid="uid://bi3gflgcsroe4" path="res://Objects/Chef/chef.gd" id="1_bh4l4"]
 [ext_resource type="Script" uid="uid://b2p5g7u0f5l02" path="res://Objects/Chef/chef_state_manager.gd" id="1_lp5fg"]
@@ -24,18 +24,26 @@
 [ext_resource type="Texture2D" uid="uid://cwq5d3nuwpyxc" path="res://Objects/Chef/Sprites/Walk/tile000.png" id="10_myb8i"]
 [ext_resource type="Texture2D" uid="uid://c71yf1qbndrf" path="res://Objects/Chef/Sprites/DashV2/tile007.png" id="11_6x0xk"]
 [ext_resource type="Texture2D" uid="uid://dlxe5f3xiv6wt" path="res://Objects/Chef/Sprites/Falling/tile002.png" id="11_cvesq"]
+[ext_resource type="Texture2D" uid="uid://dtuh38hlesm3w" path="res://Objects/Chef/Sprites/Dead/tile000.png" id="11_fa82u"]
 [ext_resource type="Texture2D" uid="uid://drfluc34gt31a" path="res://Objects/Chef/Sprites/Walk/tile001.png" id="11_yjrt3"]
 [ext_resource type="Texture2D" uid="uid://csvqcfr4f1rir" path="res://Objects/Chef/Sprites/Falling/tile003.png" id="12_3n1bv"]
+[ext_resource type="Texture2D" uid="uid://cr5qjdbavel0j" path="res://Objects/Chef/Sprites/Dead/tile001.png" id="12_gn3ia"]
 [ext_resource type="Texture2D" uid="uid://clj3maw1sb2s3" path="res://Objects/Chef/Sprites/Walk/tile002.png" id="12_nu8pr"]
+[ext_resource type="Texture2D" uid="uid://ux4hyefdtyj7" path="res://Objects/Chef/Sprites/Dead/tile002.png" id="13_2hvyt"]
 [ext_resource type="Texture2D" uid="uid://bcdwcdyy5bu3j" path="res://Objects/Chef/Sprites/Walk/tile003.png" id="13_e3vyr"]
+[ext_resource type="Texture2D" uid="uid://ccga0fnlvd6ip" path="res://Objects/Chef/Sprites/Dead/tile003.png" id="14_4g66w"]
 [ext_resource type="Texture2D" uid="uid://cm5b7p85p1gny" path="res://Objects/Chef/Sprites/Walk/tile004.png" id="14_vlq3j"]
 [ext_resource type="Texture2D" uid="uid://b1fjnjic7odq5" path="res://Objects/Chef/Sprites/Walk/tile005.png" id="15_1ht0x"]
 [ext_resource type="Texture2D" uid="uid://c25k1lfysjnq6" path="res://Objects/Chef/Sprites/Jumping/tile000.png" id="15_6oj22"]
+[ext_resource type="Texture2D" uid="uid://cwupgblga7hmv" path="res://Objects/Chef/Sprites/Dead/tile004.png" id="15_mxofw"]
 [ext_resource type="Texture2D" uid="uid://dxjcanf0df5m6" path="res://Objects/Chef/Sprites/Jumping/tile001.png" id="16_0djbx"]
+[ext_resource type="Texture2D" uid="uid://cw6s0erqo8013" path="res://Objects/Chef/Sprites/Dead/tile005.png" id="16_0w5aj"]
 [ext_resource type="Texture2D" uid="uid://bl4o3qy55c5sk" path="res://Objects/Chef/Sprites/Walk/tile006.png" id="16_uxhdq"]
+[ext_resource type="Texture2D" uid="uid://bgsetgmhqps0r" path="res://Objects/Chef/Sprites/Dead/tile006.png" id="17_6x55e"]
 [ext_resource type="Texture2D" uid="uid://byah37dumlpv0" path="res://Objects/Chef/Sprites/Jumping/tile002.png" id="17_djgt7"]
 [ext_resource type="Texture2D" uid="uid://dd0606atgonn1" path="res://Objects/Chef/Sprites/Walk/tile007.png" id="17_qdofp"]
 [ext_resource type="Texture2D" uid="uid://bpxr1nq588h1g" path="res://Objects/Chef/Sprites/Jumping/tile003.png" id="18_81q7c"]
+[ext_resource type="Texture2D" uid="uid://bw5p2rh8gtk6r" path="res://Objects/Chef/Sprites/Dead/tile007.png" id="18_kp4df"]
 [ext_resource type="Script" uid="uid://djgcf5ceh1vpd" path="res://Objects/Chef/States/chef_jumping.gd" id="31_g0qw0"]
 [ext_resource type="Script" uid="uid://dj2j8l0a87bl4" path="res://Objects/Chef/States/chef_falling.gd" id="32_0djbx"]
 [ext_resource type="Script" uid="uid://dfy0ueh6dkoii" path="res://Objects/Chef/States/chef_hurt.gd" id="40_6dtab"]
@@ -74,6 +82,59 @@ animations = [{
 }],
 "loop": false,
 "name": &"Dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_fa82u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fa82u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gn3ia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gn3ia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2hvyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2hvyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4g66w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_mxofw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_4g66w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_mxofw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0w5aj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0w5aj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6x55e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6x55e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_kp4df")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_kp4df")
+}],
+"loop": false,
+"name": &"Dead",
 "speed": 5.0
 }, {
 "frames": [{
@@ -185,6 +246,7 @@ height = 5.1546392
 
 [node name="Chef" type="CharacterBody2D"]
 z_index = 1
+position = Vector2(-1, -1)
 script = ExtResource("1_bh4l4")
 
 [node name="SideScrollingMovement" type="Node" parent="."]
@@ -211,9 +273,8 @@ dash_cooldown = 1.0
 texture_filter = 1
 material = SubResource("ShaderMaterial_yjrt3")
 sprite_frames = SubResource("SpriteFrames_v6i6m")
-animation = &"Walk"
+animation = &"Dead"
 autoplay = "Idle"
-frame_progress = 0.7178184
 speed_scale = 4.0
 
 [node name="ColorComponent" parent="AnimatedSprite2D" instance=ExtResource("40_bpugb")]
@@ -256,4 +317,6 @@ script = ExtResource("40_6dtab")
 script = ExtResource("41_1d1m7")
 
 [connection signal="timeout" from="HealthController/HurtCooldownTimer" to="HealthController" method="_on_hurt_cooldown_timer_timeout"]
+[connection signal="dash_interrupted" from="DashController" to="." method="_on_dash_controller_dash_interrupted"]
+[connection signal="dash_start" from="DashController" to="." method="_on_dash_controller_dash_start"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

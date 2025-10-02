@@ -33,7 +33,7 @@
 [ext_resource type="Script" uid="uid://h1bl61hrk6cu" path="res://Objects/Enemy/States/enemy_attacking.gd" id="30_70lbu"]
 [ext_resource type="Script" uid="uid://b0m6vfj64ub4" path="res://Objects/Enemy/States/enemy_guarding.gd" id="31_aopvj"]
 [ext_resource type="Script" uid="uid://b4e0c34megjsp" path="res://Objects/Enemy/enemy_state.gd" id="32_fmngu"]
-[ext_resource type="Script" uid="uid://b65xkpfo6sqxk" path="res://Objects/Enemy/Scenes/enemy_hurt.gd" id="33_xfykc"]
+[ext_resource type="Script" uid="uid://ec84adcjxicg" path="res://Objects/Enemy/States/enemy_hurt.gd" id="33_xfykc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i2r1b"]
 animations = [{
@@ -141,6 +141,8 @@ is_facing_right = false
 visual_path = NodePath("../AnimatedSprite2D")
 
 [node name="HealthController" parent="." instance=ExtResource("3_nws34")]
+position = Vector2(-1, 0)
+health = 3
 
 [node name="DashController" parent="." instance=ExtResource("3_xfykc")]
 dash_distance = 40.0
@@ -201,4 +203,6 @@ metadata/_custom_type_script = "uid://b4e0c34megjsp"
 script = ExtResource("32_fmngu")
 metadata/_custom_type_script = "uid://b4e0c34megjsp"
 
+[connection signal="damaged" from="HealthController" to="." method="_on_health_controller_damaged"]
+[connection signal="dead" from="HealthController" to="." method="_on_health_controller_dead"]
 [connection signal="timeout" from="EnemyStateManager/Guarding/GuardDuration" to="EnemyStateManager/Guarding" method="_on_guard_duration_timeout"]
