@@ -30,8 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://oy0ixlj548wg" path="res://Objects/Enemy/Sprites/Green/tile005.png" id="24_ff1wy"]
 [ext_resource type="Texture2D" uid="uid://cyq601pfb4mqo" path="res://Objects/Enemy/Sprites/Green/tile006.png" id="25_esut0"]
 [ext_resource type="Texture2D" uid="uid://vk88imlvx34b" path="res://Objects/Enemy/Sprites/Green/tile007.png" id="26_v3fsn"]
-[ext_resource type="Script" uid="uid://h1bl61hrk6cu" path="res://Objects/Enemy/enemy_attacking.gd" id="29_5ccqh"]
-[ext_resource type="Script" uid="uid://b0m6vfj64ub4" path="res://Objects/Enemy/enemy_guarding.gd" id="31_nqhjh"]
+[ext_resource type="Script" uid="uid://h1bl61hrk6cu" path="res://Objects/Enemy/States/enemy_attacking.gd" id="29_5ccqh"]
+[ext_resource type="Script" uid="uid://b0m6vfj64ub4" path="res://Objects/Enemy/States/enemy_guarding.gd" id="31_nqhjh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i2r1b"]
 animations = [{
@@ -170,10 +170,8 @@ target_position = Vector2(-30, 0)
 script = ExtResource("9_6fh8m")
 metadata/_custom_type_script = "uid://otglw13nao5r"
 
-[node name="Moving" type="Node" parent="EnemyStateManager" node_paths=PackedStringArray("left_ray", "right_ray")]
+[node name="Moving" type="Node" parent="EnemyStateManager"]
 script = ExtResource("11_2r3xr")
-left_ray = NodePath("../../EnemyLeftRay")
-right_ray = NodePath("../../EnemyRightRay")
 metadata/_custom_type_script = "uid://b4e0c34megjsp"
 
 [node name="Attacking" type="Node" parent="EnemyStateManager"]

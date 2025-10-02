@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://ce0unrlovwwyi"]
+[gd_scene load_steps=46 format=3 uid="uid://ce0unrlovwwyi"]
 
 [ext_resource type="Script" uid="uid://bi3gflgcsroe4" path="res://Objects/Chef/chef.gd" id="1_bh4l4"]
 [ext_resource type="Script" uid="uid://b2p5g7u0f5l02" path="res://Objects/Chef/chef_state_manager.gd" id="1_lp5fg"]
@@ -38,7 +38,9 @@
 [ext_resource type="Texture2D" uid="uid://bpxr1nq588h1g" path="res://Objects/Chef/Sprites/Jumping/tile003.png" id="18_81q7c"]
 [ext_resource type="Script" uid="uid://djgcf5ceh1vpd" path="res://Objects/Chef/States/chef_jumping.gd" id="31_g0qw0"]
 [ext_resource type="Script" uid="uid://dj2j8l0a87bl4" path="res://Objects/Chef/States/chef_falling.gd" id="32_0djbx"]
+[ext_resource type="Script" uid="uid://dfy0ueh6dkoii" path="res://Objects/Chef/States/chef_hurt.gd" id="40_6dtab"]
 [ext_resource type="PackedScene" uid="uid://12r0f6rnk5je" path="res://Base/Scenes/color_component.tscn" id="40_bpugb"]
+[ext_resource type="Script" uid="uid://g548ap058on1" path="res://Objects/Chef/States/chef_dead.gd" id="41_1d1m7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yjrt3"]
 shader = ExtResource("5_6dtab")
@@ -173,11 +175,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3n1bv"]
+radius = 3.0
+height = 22.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pgac2"]
-radius = 1.0309279
+radius = 0.51546395
 height = 5.1546392
 
 [node name="Chef" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_bh4l4")
 
 [node name="SideScrollingMovement" type="Node" parent="."]
@@ -192,6 +199,7 @@ metadata/_custom_type_script = "uid://c3xdbbuxx3krw"
 
 [node name="HealthController" type="Node2D" parent="."]
 script = ExtResource("3_16lfa")
+health = 3
 
 [node name="HurtCooldownTimer" type="Timer" parent="HealthController"]
 
@@ -210,8 +218,14 @@ speed_scale = 4.0
 
 [node name="ColorComponent" parent="AnimatedSprite2D" instance=ExtResource("40_bpugb")]
 
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_3n1bv")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.0000002)
+position = Vector2(-2.861023e-06, 2)
 scale = Vector2(3.88, 3.88)
 shape = SubResource("CapsuleShape2D_pgac2")
 
@@ -236,7 +250,10 @@ script = ExtResource("31_g0qw0")
 script = ExtResource("32_0djbx")
 
 [node name="Hurt" type="Node" parent="ChefStateManager"]
+script = ExtResource("40_6dtab")
 
 [node name="Dead" type="Node" parent="ChefStateManager"]
+script = ExtResource("41_1d1m7")
 
 [connection signal="timeout" from="HealthController/HurtCooldownTimer" to="HealthController" method="_on_hurt_cooldown_timer_timeout"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://bo7lh60tiloe4"]
+[gd_scene load_steps=36 format=3 uid="uid://bo7lh60tiloe4"]
 
 [ext_resource type="Script" uid="uid://1pys037seihn" path="res://Objects/Enemy/enemy.gd" id="1_qcsdd"]
 [ext_resource type="Script" uid="uid://dh0phk40nl2nm" path="res://Base/side_scrolling_walk_movement.gd" id="2_toqif"]
 [ext_resource type="PackedScene" uid="uid://drrdy0ylpjttb" path="res://Base/Scenes/dash_controller.tscn" id="3_tenx1"]
+[ext_resource type="PackedScene" uid="uid://bxgnrwanebyyf" path="res://Base/Scenes/health_controller.tscn" id="3_toqif"]
 [ext_resource type="Texture2D" uid="uid://cy1t3rwgil4eo" path="res://Objects/Enemy/Sprites/Purple/tile016.png" id="4_qcsdd"]
 [ext_resource type="Texture2D" uid="uid://dtebtdkkr420c" path="res://Objects/Enemy/Sprites/Purple/tile017.png" id="5_toqif"]
 [ext_resource type="Texture2D" uid="uid://qyeeuubll00v" path="res://Objects/Enemy/Sprites/Purple/tile018.png" id="6_tenx1"]
@@ -29,8 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://dd0eblj5jxufe" path="res://Objects/Enemy/Sprites/Purple/tile007.png" id="27_1vhtu"]
 [ext_resource type="Script" uid="uid://bcbgk1fp1jmr4" path="res://Objects/Enemy/enemy_state_manager.gd" id="28_31adp"]
 [ext_resource type="Script" uid="uid://bdqj8hl7k8x3e" path="res://Objects/Enemy/States/enemy_walk.gd" id="29_68xho"]
-[ext_resource type="Script" uid="uid://h1bl61hrk6cu" path="res://Objects/Enemy/enemy_attacking.gd" id="30_75mne"]
-[ext_resource type="Script" uid="uid://b0m6vfj64ub4" path="res://Objects/Enemy/enemy_guarding.gd" id="31_qeno5"]
+[ext_resource type="Script" uid="uid://h1bl61hrk6cu" path="res://Objects/Enemy/States/enemy_attacking.gd" id="30_75mne"]
+[ext_resource type="Script" uid="uid://b0m6vfj64ub4" path="res://Objects/Enemy/States/enemy_guarding.gd" id="31_qeno5"]
 [ext_resource type="Script" uid="uid://b4e0c34megjsp" path="res://Objects/Enemy/enemy_state.gd" id="32_n8ig3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i2r1b"]
@@ -147,6 +148,8 @@ script = ExtResource("2_toqif")
 left_ray = NodePath("../ObstacleLeftRay")
 right_ray = NodePath("../ObstacleRightRay")
 visual_path = NodePath("../AnimatedSprite2D")
+
+[node name="HealthController" parent="." instance=ExtResource("3_toqif")]
 
 [node name="DashController" parent="." instance=ExtResource("3_tenx1")]
 dash_distance = 5.0

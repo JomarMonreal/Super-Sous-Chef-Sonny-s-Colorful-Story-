@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://ctkwel4o053ls"]
+[gd_scene load_steps=37 format=3 uid="uid://ctkwel4o053ls"]
 
 [ext_resource type="Script" uid="uid://1pys037seihn" path="res://Objects/Enemy/enemy.gd" id="1_p38gn"]
 [ext_resource type="Script" uid="uid://dh0phk40nl2nm" path="res://Base/side_scrolling_walk_movement.gd" id="2_nws34"]
+[ext_resource type="PackedScene" uid="uid://bxgnrwanebyyf" path="res://Base/Scenes/health_controller.tscn" id="3_nws34"]
 [ext_resource type="PackedScene" uid="uid://drrdy0ylpjttb" path="res://Base/Scenes/dash_controller.tscn" id="3_xfykc"]
 [ext_resource type="Texture2D" uid="uid://ccbaxlgec84oq" path="res://Objects/Enemy/Sprites/Yellow/tile016.png" id="4_p38gn"]
 [ext_resource type="Texture2D" uid="uid://crq41gqwdlxi4" path="res://Objects/Enemy/Sprites/Yellow/tile017.png" id="5_nws34"]
@@ -29,9 +30,10 @@
 [ext_resource type="Texture2D" uid="uid://cqcwd7vhvs787" path="res://Objects/Enemy/Sprites/Yellow/tile007.png" id="27_jwgcn"]
 [ext_resource type="Script" uid="uid://bcbgk1fp1jmr4" path="res://Objects/Enemy/enemy_state_manager.gd" id="28_gerfo"]
 [ext_resource type="Script" uid="uid://bdqj8hl7k8x3e" path="res://Objects/Enemy/States/enemy_walk.gd" id="29_k7j87"]
-[ext_resource type="Script" uid="uid://h1bl61hrk6cu" path="res://Objects/Enemy/enemy_attacking.gd" id="30_70lbu"]
-[ext_resource type="Script" uid="uid://b0m6vfj64ub4" path="res://Objects/Enemy/enemy_guarding.gd" id="31_aopvj"]
+[ext_resource type="Script" uid="uid://h1bl61hrk6cu" path="res://Objects/Enemy/States/enemy_attacking.gd" id="30_70lbu"]
+[ext_resource type="Script" uid="uid://b0m6vfj64ub4" path="res://Objects/Enemy/States/enemy_guarding.gd" id="31_aopvj"]
 [ext_resource type="Script" uid="uid://b4e0c34megjsp" path="res://Objects/Enemy/enemy_state.gd" id="32_fmngu"]
+[ext_resource type="Script" uid="uid://b65xkpfo6sqxk" path="res://Objects/Enemy/Scenes/enemy_hurt.gd" id="33_xfykc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i2r1b"]
 animations = [{
@@ -138,8 +140,10 @@ right_ray = NodePath("../ObstacleRightRay")
 is_facing_right = false
 visual_path = NodePath("../AnimatedSprite2D")
 
+[node name="HealthController" parent="." instance=ExtResource("3_nws34")]
+
 [node name="DashController" parent="." instance=ExtResource("3_xfykc")]
-dash_distance = 30.0
+dash_distance = 40.0
 dash_speed = 100.0
 dash_cooldown = 1.0
 dash_delay = 0.7
@@ -175,8 +179,8 @@ metadata/_custom_type_script = "uid://otglw13nao5r"
 
 [node name="Moving" type="Node" parent="EnemyStateManager" node_paths=PackedStringArray("left_ray", "right_ray")]
 script = ExtResource("29_k7j87")
-left_ray = NodePath("../../EnemyLeftRay")
-right_ray = NodePath("../../EnemyRightRay")
+left_ray = NodePath("../../EnemyRightRay")
+right_ray = NodePath("../../EnemyLeftRay")
 metadata/_custom_type_script = "uid://b4e0c34megjsp"
 
 [node name="Attacking" type="Node" parent="EnemyStateManager"]
@@ -190,7 +194,7 @@ script = ExtResource("31_aopvj")
 wait_time = 2.0
 
 [node name="Hurt" type="Node" parent="EnemyStateManager"]
-script = ExtResource("32_fmngu")
+script = ExtResource("33_xfykc")
 metadata/_custom_type_script = "uid://b4e0c34megjsp"
 
 [node name="Dead" type="Node" parent="EnemyStateManager"]

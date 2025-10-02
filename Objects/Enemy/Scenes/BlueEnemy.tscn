@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://bllhatsjhxu8h"]
+[gd_scene load_steps=36 format=3 uid="uid://bllhatsjhxu8h"]
 
 [ext_resource type="Script" uid="uid://1pys037seihn" path="res://Objects/Enemy/enemy.gd" id="1_r18gc"]
 [ext_resource type="Script" uid="uid://dh0phk40nl2nm" path="res://Base/side_scrolling_walk_movement.gd" id="2_dxjjj"]
+[ext_resource type="PackedScene" uid="uid://bxgnrwanebyyf" path="res://Base/Scenes/health_controller.tscn" id="3_dxjjj"]
 [ext_resource type="PackedScene" uid="uid://drrdy0ylpjttb" path="res://Base/Scenes/dash_controller.tscn" id="3_pfufw"]
 [ext_resource type="Texture2D" uid="uid://2eo6a22dk4uh" path="res://Objects/Enemy/Sprites/Blue/tile016.png" id="4_r18gc"]
 [ext_resource type="Texture2D" uid="uid://b6rg4u4fp0w8s" path="res://Objects/Enemy/Sprites/Blue/tile017.png" id="5_dxjjj"]
@@ -29,8 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://dlv6r4tp50f8q" path="res://Objects/Enemy/Sprites/Blue/tile007.png" id="27_23hoq"]
 [ext_resource type="Script" uid="uid://bcbgk1fp1jmr4" path="res://Objects/Enemy/enemy_state_manager.gd" id="28_1yyh7"]
 [ext_resource type="Script" uid="uid://bdqj8hl7k8x3e" path="res://Objects/Enemy/States/enemy_walk.gd" id="29_0al7p"]
-[ext_resource type="Script" uid="uid://h1bl61hrk6cu" path="res://Objects/Enemy/enemy_attacking.gd" id="30_at1ms"]
-[ext_resource type="Script" uid="uid://b0m6vfj64ub4" path="res://Objects/Enemy/enemy_guarding.gd" id="31_p5pp3"]
+[ext_resource type="Script" uid="uid://h1bl61hrk6cu" path="res://Objects/Enemy/States/enemy_attacking.gd" id="30_at1ms"]
+[ext_resource type="Script" uid="uid://b0m6vfj64ub4" path="res://Objects/Enemy/States/enemy_guarding.gd" id="31_p5pp3"]
 [ext_resource type="Script" uid="uid://b4e0c34megjsp" path="res://Objects/Enemy/enemy_state.gd" id="32_kbmd4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i2r1b"]
@@ -137,8 +138,10 @@ right_ray = NodePath("../ObstacleRightRay")
 is_facing_right = false
 visual_path = NodePath("../AnimatedSprite2D")
 
+[node name="HealthController" parent="." instance=ExtResource("3_dxjjj")]
+
 [node name="DashController" parent="." instance=ExtResource("3_pfufw")]
-dash_distance = 30.0
+dash_distance = 40.0
 dash_speed = 100.0
 dash_cooldown = 1.0
 dash_delay = 0.4

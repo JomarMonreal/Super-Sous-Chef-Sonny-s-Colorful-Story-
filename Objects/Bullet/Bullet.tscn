@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmvyrsj3go0ly"]
+[gd_scene load_steps=12 format=3 uid="uid://cmvyrsj3go0ly"]
 
 [ext_resource type="Script" uid="uid://dtpi6tc4q2s1w" path="res://Base/one_directional_movement.gd" id="1_7ufng"]
+[ext_resource type="Script" uid="uid://br4pd15b3qjeb" path="res://Objects/Bullet/bullet.gd" id="1_exh57"]
 [ext_resource type="Texture2D" uid="uid://ceq74qptr55a8" path="res://Objects/Bullet/tile024.png" id="2_exh57"]
 [ext_resource type="Texture2D" uid="uid://cq0h0hdfu86jf" path="res://Objects/Bullet/tile025.png" id="3_qtect"]
 [ext_resource type="Texture2D" uid="uid://bl6fj1okdmwf4" path="res://Objects/Bullet/tile026.png" id="4_j8gvf"]
@@ -44,6 +45,7 @@ height = 8.0
 
 [node name="Bullet" type="RigidBody2D"]
 gravity_scale = 0.0
+script = ExtResource("1_exh57")
 
 [node name="OneDirectionalMovement" type="Node" parent="."]
 script = ExtResource("1_7ufng")
