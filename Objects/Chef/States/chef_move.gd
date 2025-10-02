@@ -11,13 +11,13 @@ func enter() -> void:
 func process(delta: float) -> int:
 	var chef := entity as Chef
 	chef.character_movement.move(delta)		
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("dash"):
 		return ChefBaseState.State.Dashing
 		
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("jump"):
 		return ChefBaseState.State.Jumping
 		
 	if chef.velocity.x == 0 and chef.velocity.y == 0:
 		return ChefBaseState.State.Idle
-		
+	
 	return ChefBaseState.State.Moving

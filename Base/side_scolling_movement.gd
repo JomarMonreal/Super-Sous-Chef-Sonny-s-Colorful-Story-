@@ -43,18 +43,18 @@ func _set_facing(dir: int) -> void:
 
 func move(delta: float) -> void:
 	# --- Jump start / state ---
-	if Input.is_action_just_pressed("ui_up") and controlled_body.is_on_floor():
+	if Input.is_action_just_pressed("jump") and controlled_body.is_on_floor():
 		controlled_body.velocity.y = JUMP_VELOCITY
 		_is_jumping = true
 		_jump_held_time = 0.0
 
-	if Input.is_action_just_released("ui_up"):
+	if Input.is_action_just_released("jump"):
 		_is_jumping = false
 
 	# --- Gravity with variable-height logic ---
 	var gravity_scale: float = 1.0
 	if controlled_body.velocity.y < 0.0:
-		if _is_jumping and Input.is_action_pressed("ui_up") and _jump_held_time < MAX_JUMP_HOLD_TIME:
+		if _is_jumping and Input.is_action_pressed("jump") and _jump_held_time < MAX_JUMP_HOLD_TIME:
 			gravity_scale = JUMP_HOLD_GRAVITY_SCALE
 			_jump_held_time += delta
 		else:
@@ -70,7 +70,7 @@ func move(delta: float) -> void:
 		_jump_held_time = 0.0
 
 	# --- Horizontal movement ---
-	var direction: float = Input.get_axis("ui_left", "ui_right")
+	var direction: float = Input.get_axis("move_left", "move_right")
 	if direction != 0.0:
 		_set_facing(-1 if direction < 0.0 else 1)
 		controlled_body.velocity.x = direction * SPEED

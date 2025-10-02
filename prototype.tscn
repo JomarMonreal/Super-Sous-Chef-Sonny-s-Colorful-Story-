@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpuroer1onh7n"]
+[gd_scene load_steps=12 format=3 uid="uid://bpuroer1onh7n"]
 
 [ext_resource type="Script" uid="uid://x4447en66rdk" path="res://Base/target_following_camera.gd" id="1_883nb"]
 [ext_resource type="PackedScene" uid="uid://ce0unrlovwwyi" path="res://Objects/Chef/Chef.tscn" id="1_vo8sw"]
 [ext_resource type="Texture2D" uid="uid://bw4wjt5dd4knb" path="res://icon.svg" id="2_883nb"]
 [ext_resource type="PackedScene" uid="uid://cjva2rt8jb4jq" path="res://Objects/Enemy/Scenes/GreenEnemy.tscn" id="4_7fmhn"]
+[ext_resource type="PackedScene" uid="uid://12r0f6rnk5je" path="res://Base/Scenes/color_component.tscn" id="5_h3f5w"]
 [ext_resource type="PackedScene" uid="uid://buf87qq5mutkk" path="res://Objects/Enemy/Scenes/RedEnemy.tscn" id="5_mbk3n"]
 [ext_resource type="PackedScene" uid="uid://ctkwel4o053ls" path="res://Objects/Enemy/Scenes/YellowEnemy.tscn" id="6_1ixuk"]
 [ext_resource type="PackedScene" uid="uid://bllhatsjhxu8h" path="res://Objects/Enemy/Scenes/BlueEnemy.tscn" id="7_8y2k3"]
@@ -15,6 +16,7 @@
 [node name="Node" type="Node"]
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+top_level = true
 position = Vector2(3, 27)
 zoom = Vector2(3.5, 3.5)
 script = ExtResource("1_883nb")
@@ -33,6 +35,8 @@ texture = ExtResource("2_883nb")
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
 
+[node name="ColorComponent" parent="StaticBody2D2" instance=ExtResource("5_h3f5w")]
+
 [node name="StaticBody2D5" type="StaticBody2D" parent="."]
 position = Vector2(258, 81)
 metadata/_edit_group_ = true
@@ -43,6 +47,8 @@ texture = ExtResource("2_883nb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D5" instance=ExtResource("5_h3f5w")]
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="."]
 position = Vector2(514, 88)
@@ -55,6 +61,8 @@ texture = ExtResource("2_883nb")
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
 
+[node name="ColorComponent" parent="StaticBody2D8" instance=ExtResource("5_h3f5w")]
+
 [node name="StaticBody2D13" type="StaticBody2D" parent="."]
 position = Vector2(642, 117)
 metadata/_edit_group_ = true
@@ -65,6 +73,8 @@ texture = ExtResource("2_883nb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D13"]
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D13" instance=ExtResource("5_h3f5w")]
 
 [node name="StaticBody2D14" type="StaticBody2D" parent="."]
 position = Vector2(771, 117)
@@ -77,6 +87,8 @@ texture = ExtResource("2_883nb")
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
 
+[node name="ColorComponent" parent="StaticBody2D14" instance=ExtResource("5_h3f5w")]
+
 [node name="StaticBody2D15" type="StaticBody2D" parent="."]
 position = Vector2(898, 82)
 metadata/_edit_group_ = true
@@ -87,6 +99,8 @@ texture = ExtResource("2_883nb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D15"]
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D15" instance=ExtResource("5_h3f5w")]
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="."]
 position = Vector2(386, 113)
@@ -99,6 +113,8 @@ texture = ExtResource("2_883nb")
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
 
+[node name="ColorComponent" parent="StaticBody2D7" instance=ExtResource("5_h3f5w")]
+
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2(-125, 113)
 metadata/_edit_group_ = true
@@ -109,6 +125,8 @@ texture = ExtResource("2_883nb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D3" instance=ExtResource("5_h3f5w")]
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="."]
 position = Vector2(-253, 81)
@@ -121,6 +139,8 @@ texture = ExtResource("2_883nb")
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
 
+[node name="ColorComponent" parent="StaticBody2D6" instance=ExtResource("5_h3f5w")]
+
 [node name="StaticBody2D9" type="StaticBody2D" parent="."]
 position = Vector2(-382, 111)
 metadata/_edit_group_ = true
@@ -131,6 +151,8 @@ texture = ExtResource("2_883nb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D9" instance=ExtResource("5_h3f5w")]
 
 [node name="StaticBody2D10" type="StaticBody2D" parent="."]
 position = Vector2(-510, 82)
@@ -143,6 +165,8 @@ texture = ExtResource("2_883nb")
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
 
+[node name="ColorComponent" parent="StaticBody2D10" instance=ExtResource("5_h3f5w")]
+
 [node name="StaticBody2D11" type="StaticBody2D" parent="."]
 position = Vector2(-638, 114)
 metadata/_edit_group_ = true
@@ -153,6 +177,8 @@ texture = ExtResource("2_883nb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D11"]
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D11" instance=ExtResource("5_h3f5w")]
 
 [node name="StaticBody2D12" type="StaticBody2D" parent="."]
 position = Vector2(-766, 84)
@@ -165,6 +191,8 @@ texture = ExtResource("2_883nb")
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
 
+[node name="ColorComponent" parent="StaticBody2D12" instance=ExtResource("5_h3f5w")]
+
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 position = Vector2(131, 112)
 metadata/_edit_group_ = true
@@ -175,6 +203,9 @@ texture = ExtResource("2_883nb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
 scale = Vector2(6.4, 6.4)
 shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D4" instance=ExtResource("5_h3f5w")]
+node_color = 1
 
 [node name="GreenEnemy" parent="." instance=ExtResource("4_7fmhn")]
 position = Vector2(121, 30)

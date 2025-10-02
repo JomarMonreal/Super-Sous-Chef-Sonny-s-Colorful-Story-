@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://ce0unrlovwwyi"]
+[gd_scene load_steps=43 format=3 uid="uid://ce0unrlovwwyi"]
 
 [ext_resource type="Script" uid="uid://bi3gflgcsroe4" path="res://Objects/Chef/chef.gd" id="1_bh4l4"]
 [ext_resource type="Script" uid="uid://b2p5g7u0f5l02" path="res://Objects/Chef/chef_state_manager.gd" id="1_lp5fg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://o5vhtbu5u4ws" path="res://Objects/Chef/States/chef_idle.gd" id="4_akdlw"]
 [ext_resource type="Texture2D" uid="uid://c5nsh2dd3ku6j" path="res://Objects/Chef/Sprites/DashV2/tile000.png" id="4_fby8n"]
 [ext_resource type="Texture2D" uid="uid://8qwx0m6u163g" path="res://Objects/Chef/Sprites/Idle/tile000.png" id="4_ubuq4"]
+[ext_resource type="Shader" uid="uid://xbfpfo5rcvvl" path="res://Objects/Chef/Chef.gdshader" id="5_6dtab"]
 [ext_resource type="Texture2D" uid="uid://ttvljl2a7t3i" path="res://Objects/Chef/Sprites/Idle/tile001.png" id="5_igld8"]
 [ext_resource type="Texture2D" uid="uid://doml1gqlnrmkm" path="res://Objects/Chef/Sprites/DashV2/tile001.png" id="5_nmfgp"]
 [ext_resource type="Texture2D" uid="uid://djqkkjyii1iie" path="res://Objects/Chef/Sprites/Idle/tile002.png" id="6_0vyea"]
@@ -37,26 +38,13 @@
 [ext_resource type="Texture2D" uid="uid://bpxr1nq588h1g" path="res://Objects/Chef/Sprites/Jumping/tile003.png" id="18_81q7c"]
 [ext_resource type="Script" uid="uid://djgcf5ceh1vpd" path="res://Objects/Chef/States/chef_jumping.gd" id="31_g0qw0"]
 [ext_resource type="Script" uid="uid://dj2j8l0a87bl4" path="res://Objects/Chef/States/chef_falling.gd" id="32_0djbx"]
-
-[sub_resource type="Shader" id="Shader_myb8i"]
-code = "shader_type canvas_item;
-
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
-
-void fragment() {
-	// Called for every pixel the material is visible on.
-}
-
-//void light() {
-//	// Called for every pixel for every light affecting the CanvasItem.
-//	// Uncomment to replace the default light processing function with this one.
-//}
-"
+[ext_resource type="PackedScene" uid="uid://12r0f6rnk5je" path="res://Base/Scenes/color_component.tscn" id="40_bpugb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yjrt3"]
-shader = SubResource("Shader_myb8i")
+shader = ExtResource("5_6dtab")
+shader_parameter/tint_color = 0
+shader_parameter/strength = 0.5
+shader_parameter/tolerance = 0.01
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v6i6m"]
 animations = [{
@@ -219,6 +207,8 @@ animation = &"Walk"
 autoplay = "Idle"
 frame_progress = 0.7178184
 speed_scale = 4.0
+
+[node name="ColorComponent" parent="AnimatedSprite2D" instance=ExtResource("40_bpugb")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.0000002)
