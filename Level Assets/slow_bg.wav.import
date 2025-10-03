@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c0xludg2ytus0"
+path="res://.godot/imported/slow_bg.wav-de3eca5441e1430c5498fe1740bbd0fe.sample"
+
+[deps]
+
+source_file="res://Level Assets/slow_bg.wav"
+dest_files=["res://.godot/imported/slow_bg.wav-de3eca5441e1430c5498fe1740bbd0fe.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
