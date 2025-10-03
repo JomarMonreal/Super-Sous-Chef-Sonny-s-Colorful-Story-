@@ -11,7 +11,8 @@
 [ext_resource type="FontFile" uid="uid://bg6vs6biwi648" path="res://Level Assets/Higher.otf" id="8_qy6fn"]
 [ext_resource type="PackedScene" uid="uid://cjva2rt8jb4jq" path="res://Objects/Enemy/Scenes/GreenEnemy.tscn" id="8_tdlws"]
 [ext_resource type="Texture2D" uid="uid://d316wtj3qs3k0" path="res://Level Assets/kitchen_and_desert.png" id="8_tvdrn"]
-[ext_resource type="PackedScene" path="res://Objects/Enemy/damage_area.tscn" id="10_i2fsw"]
+[ext_resource type="AudioStream" uid="uid://c0xludg2ytus0" path="res://Level Assets/slow_bg.wav" id="10_74tud"]
+[ext_resource type="PackedScene" uid="uid://3w5g6pq4vn2g" path="res://Objects/Enemy/damage_area.tscn" id="10_i2fsw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i2fsw"]
 texture = ExtResource("7_2voxd")
@@ -25,21 +26,6 @@ size = Vector2(4, 20)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tvdrn"]
 normal = Vector2(-0.0020345051, 0.9999979)
-
-[sub_resource type="Animation" id="Animation_tdlws"]
-resource_name = "slide"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1359, -118)]
-}
 
 [sub_resource type="Animation" id="Animation_i2fsw"]
 length = 3.0
@@ -57,10 +43,40 @@ tracks/0/keys = {
 "values": [Vector2(1359, -119), Vector2(1422, -120)]
 }
 
+[sub_resource type="Animation" id="Animation_tdlws"]
+resource_name = "slide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1359, -118)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_74tud"]
 _data = {
 &"RESET": SubResource("Animation_i2fsw"),
 &"slide": SubResource("Animation_tdlws")
+}
+
+[sub_resource type="Animation" id="Animation_2voxd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1575, -135)]
 }
 
 [sub_resource type="Animation" id="Animation_74tud"]
@@ -78,21 +94,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1575, -135), Vector2(1855, -135)]
-}
-
-[sub_resource type="Animation" id="Animation_2voxd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1575, -135)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qy6fn"]
@@ -123,6 +124,12 @@ intensity = 0.75
 [node name="Chef" parent="." instance=ExtResource("2_lc8qd")]
 z_index = 6
 position = Vector2(15, -14)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Chef"]
+position = Vector2(-15, 14)
+stream = ExtResource("10_74tud")
+volume_db = -10.0
+autoplay = true
 
 [node name="TileMapLayerBG2" type="TileMapLayer" parent="."]
 position = Vector2(0, -1)
@@ -316,7 +323,7 @@ collision_mask = 5
 rotation = 3.139558
 shape = SubResource("WorldBoundaryShape2D_tvdrn")
 
-[node name="AnimatableBody2D" parent="." instance=ExtResource("8_i2fsw")]
+[node name="AnimatableBody2D" parent="." instance=ExtResource("10_i2fsw")]
 position = Vector2(1359, -119)
 metadata/_edit_group_ = true
 
@@ -338,7 +345,7 @@ autoplay = "RESET"
 position = Vector2(1265.0001, -120)
 scale = Vector2(2.0830998, -0.09089918)
 
-[node name="AnimatableBody2D2" parent="." instance=ExtResource("8_i2fsw")]
+[node name="AnimatableBody2D2" parent="." instance=ExtResource("10_i2fsw")]
 position = Vector2(1575, -135)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D2"]

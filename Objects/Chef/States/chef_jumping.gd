@@ -5,7 +5,7 @@ extends ChefBaseState
 func enter() -> void:
 	var chef := entity as Chef
 	chef.sprite.play("Jumping")
-
+	$"../../Node/ChefJump".play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func process(delta: float) -> int:
