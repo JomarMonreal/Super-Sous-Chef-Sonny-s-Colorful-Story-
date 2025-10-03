@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bpuroer1onh7n"]
+[gd_scene load_steps=19 format=3 uid="uid://bpuroer1onh7n"]
 
 [ext_resource type="Script" uid="uid://x4447en66rdk" path="res://Base/target_following_camera.gd" id="1_883nb"]
 [ext_resource type="PackedScene" uid="uid://ce0unrlovwwyi" path="res://Objects/Chef/Chef.tscn" id="1_vo8sw"]
@@ -11,6 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://bo7lh60tiloe4" path="res://Objects/Enemy/Scenes/PurpleEnemy.tscn" id="8_1hs15"]
 [ext_resource type="PackedScene" uid="uid://djx4r5pffn40l" path="res://Objects/Enemy/Scenes/OrangeEnemy.tscn" id="9_bk8nm"]
 [ext_resource type="PackedScene" uid="uid://dm56axusn0p4o" path="res://Objects/Fruit/RainboxFruit.tscn" id="11_h3f5w"]
+[ext_resource type="PackedScene" uid="uid://c1rvpwyf4k2cq" path="res://Objects/Fruit/RedFruit.tscn" id="12_vm637"]
+[ext_resource type="PackedScene" uid="uid://3inafho62xxd" path="res://Objects/Fruit/YellowFruit.tscn" id="13_h681u"]
+[ext_resource type="PackedScene" uid="uid://c70ssd1f8ef8k" path="res://Objects/Fruit/BlueFruit.tscn" id="14_0c7e4"]
+[ext_resource type="PackedScene" uid="uid://dudfudc7qqeoh" path="res://Objects/Fruit/GreenFruit.tscn" id="15_3c612"]
+[ext_resource type="PackedScene" uid="uid://csnkjhusfahp2" path="res://Objects/Fruit/OrangeFruit.tscn" id="16_tprrn"]
+[ext_resource type="PackedScene" uid="uid://ckm16h51flrkm" path="res://Objects/Fruit/PurpleFruit.tscn" id="17_3c612"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vo8sw"]
 
@@ -228,5 +234,23 @@ position = Vector2(633, 36)
 
 [node name="RainbowFruit" parent="." instance=ExtResource("11_h3f5w")]
 position = Vector2(-30, 2)
+
+[node name="RedFruit" parent="." instance=ExtResource("12_vm637")]
+position = Vector2(259, 7)
+
+[node name="YellowFruit" parent="." instance=ExtResource("13_h681u")]
+position = Vector2(41, 6)
+
+[node name="GreenFruit" parent="." instance=ExtResource("15_3c612")]
+position = Vector2(286, 2)
+
+[node name="OrangeFruit" parent="." instance=ExtResource("16_tprrn")]
+position = Vector2(10, 1)
+
+[node name="BlueFruit2" parent="." instance=ExtResource("14_0c7e4")]
+position = Vector2(-50, 7)
+
+[node name="PurpleFruit" parent="." instance=ExtResource("17_3c612")]
+position = Vector2(236, 3)
 
 [connection signal="dashing" from="Chef" to="Camera2D" method="_on_chef_dashing"]
