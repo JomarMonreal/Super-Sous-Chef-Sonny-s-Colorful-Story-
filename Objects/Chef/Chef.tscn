@@ -246,7 +246,9 @@ height = 5.1546392
 
 [node name="Chef" type="CharacterBody2D"]
 z_index = 1
-position = Vector2(-1, -1)
+position = Vector2(-2, -1)
+collision_layer = 4
+collision_mask = 9
 script = ExtResource("1_bh4l4")
 
 [node name="SideScrollingMovement" type="Node" parent="."]
@@ -280,6 +282,8 @@ speed_scale = 4.0
 [node name="ColorComponent" parent="AnimatedSprite2D" instance=ExtResource("40_bpugb")]
 
 [node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(0, 1)

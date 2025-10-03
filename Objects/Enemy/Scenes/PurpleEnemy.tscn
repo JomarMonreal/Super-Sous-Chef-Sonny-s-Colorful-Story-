@@ -142,7 +142,9 @@ radius = 7.0
 height = 18.0
 
 [node name="PurpleEnemy" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_qcsdd")
+node_color = 4
 
 [node name="SideScrollingWalkMovement" type="Node2D" parent="." node_paths=PackedStringArray("left_ray", "right_ray")]
 script = ExtResource("2_toqif")

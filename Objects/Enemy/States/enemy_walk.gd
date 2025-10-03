@@ -18,6 +18,12 @@ func decide_attack() -> EnemyBaseState.State:
 func process(delta: float) -> int:
 	var enemy := entity as Enemy
 	
+	if enemy.node_color == ColorController.current_game_color:
+		left_ray.set_collision_mask_value(3, false)
+		right_ray.set_collision_mask_value(3, false)
+	else:
+		left_ray.set_collision_mask_value(3, true)
+		right_ray.set_collision_mask_value(3, true)
 	if !enemy.dash_controller.is_dashing and !enemy.dash_controller.is_on_cooldown:
 		if left_ray.is_colliding() and enemy.character_movement.direction < 0:
 			if left_ray.get_collider() is Chef:

@@ -130,7 +130,9 @@ radius = 4.0
 height = 20.0
 
 [node name="OrangeEnemy" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_msn7c")
+node_color = 5
 
 [node name="SideScrollingWalkMovement" type="Node2D" parent="." node_paths=PackedStringArray("left_ray", "right_ray")]
 script = ExtResource("2_irjtd")

@@ -130,6 +130,8 @@ radius = 4.0
 height = 22.0
 
 [node name="RedEnemy" type="CharacterBody2D"]
+position = Vector2(-2, 0)
+collision_layer = 2
 script = ExtResource("1_2mbld")
 
 [node name="SideScrollingWalkMovement" type="Node2D" parent="." node_paths=PackedStringArray("left_ray", "right_ray")]

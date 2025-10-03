@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Enemy
 
+@export var node_color: ColorController.GameColor
+
 @onready var states: EnemyStateManager = $EnemyStateManager
 @onready var character_movement: SideScrollingWalkMovement = $SideScrollingWalkMovement
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -13,6 +15,10 @@ func _ready() -> void:
 	states.init(self)
 	
 func _process(delta: float) -> void:
+	if node_color == ColorController.current_game_color:
+		set_collision_layer_value(4, false)
+	else:
+		set_collision_layer_value(4, true)
 	states.process(delta)
 
 func _physics_process(delta: float) -> void:

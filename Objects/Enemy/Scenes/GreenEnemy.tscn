@@ -130,7 +130,9 @@ radius = 4.0
 height = 22.0
 
 [node name="GreenEnemy" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_bnjh4")
+node_color = 1
 
 [node name="SideScrollingWalkMovement" type="Node2D" parent="." node_paths=PackedStringArray("left_ray", "right_ray")]
 script = ExtResource("2_sejbl")
