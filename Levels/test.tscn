@@ -1,0 +1,236 @@
+[gd_scene load_steps=14 format=3 uid="uid://b0fkr5vumpglp"]
+
+[ext_resource type="Script" uid="uid://x4447en66rdk" path="res://Base/target_following_camera.gd" id="1_5tkv4"]
+[ext_resource type="PackedScene" uid="uid://ce0unrlovwwyi" path="res://Objects/Chef/Chef.tscn" id="2_0m0f1"]
+[ext_resource type="Texture2D" uid="uid://bw4wjt5dd4knb" path="res://icon.svg" id="3_b0q6j"]
+[ext_resource type="PackedScene" uid="uid://12r0f6rnk5je" path="res://Base/Scenes/color_component.tscn" id="4_mhym6"]
+[ext_resource type="PackedScene" uid="uid://cjva2rt8jb4jq" path="res://Objects/Enemy/Scenes/GreenEnemy.tscn" id="5_a3se8"]
+[ext_resource type="PackedScene" uid="uid://buf87qq5mutkk" path="res://Objects/Enemy/Scenes/RedEnemy.tscn" id="6_uty7l"]
+[ext_resource type="PackedScene" uid="uid://ctkwel4o053ls" path="res://Objects/Enemy/Scenes/YellowEnemy.tscn" id="7_45l4g"]
+[ext_resource type="PackedScene" uid="uid://bllhatsjhxu8h" path="res://Objects/Enemy/Scenes/BlueEnemy.tscn" id="8_4uo0j"]
+[ext_resource type="PackedScene" uid="uid://bo7lh60tiloe4" path="res://Objects/Enemy/Scenes/PurpleEnemy.tscn" id="9_vxl6d"]
+[ext_resource type="PackedScene" uid="uid://c1rvpwyf4k2cq" path="res://Objects/Fruit/Fruit.tscn" id="10_eski5"]
+[ext_resource type="PackedScene" uid="uid://dudfudc7qqeoh" path="res://Objects/Fruit/GreenFruit.tscn" id="11_pdf00"]
+[ext_resource type="PackedScene" uid="uid://djx4r5pffn40l" path="res://Objects/Enemy/Scenes/OrangeEnemy.tscn" id="12_a6gra"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vo8sw"]
+
+[node name="Node" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+top_level = true
+position = Vector2(3, 27)
+zoom = Vector2(3.5, 3.5)
+script = ExtResource("1_5tkv4")
+target = NodePath("../Chef")
+
+[node name="Chef" parent="." instance=ExtResource("2_0m0f1")]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(3, 82)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+texture = ExtResource("3_b0q6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D2" instance=ExtResource("4_mhym6")]
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(258, 81)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D5"]
+texture = ExtResource("3_b0q6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D5" instance=ExtResource("4_mhym6")]
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="."]
+position = Vector2(514, 88)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D8"]
+texture = ExtResource("3_b0q6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D8"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D8" instance=ExtResource("4_mhym6")]
+
+[node name="StaticBody2D13" type="StaticBody2D" parent="."]
+position = Vector2(642, 117)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D13"]
+texture = ExtResource("3_b0q6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D13"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D13" instance=ExtResource("4_mhym6")]
+
+[node name="StaticBody2D14" type="StaticBody2D" parent="."]
+position = Vector2(771, 117)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D14"]
+texture = ExtResource("3_b0q6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D14"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D14" instance=ExtResource("4_mhym6")]
+
+[node name="StaticBody2D15" type="StaticBody2D" parent="."]
+position = Vector2(898, 82)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D15"]
+texture = ExtResource("3_b0q6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D15"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D15" instance=ExtResource("4_mhym6")]
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+position = Vector2(386, 113)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D7"]
+texture = ExtResource("3_b0q6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D7" instance=ExtResource("4_mhym6")]
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-125, 113)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+texture = ExtResource("3_b0q6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D3" instance=ExtResource("4_mhym6")]
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(-253, 81)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D6"]
+texture = ExtResource("3_b0q6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D6" instance=ExtResource("4_mhym6")]
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="."]
+position = Vector2(-382, 111)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D9"]
+texture = ExtResource("3_b0q6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D9"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D9" instance=ExtResource("4_mhym6")]
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="."]
+position = Vector2(-510, 82)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D10"]
+texture = ExtResource("3_b0q6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D10"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D10" instance=ExtResource("4_mhym6")]
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="."]
+position = Vector2(-638, 114)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D11"]
+texture = ExtResource("3_b0q6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D11"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D11" instance=ExtResource("4_mhym6")]
+
+[node name="StaticBody2D12" type="StaticBody2D" parent="."]
+position = Vector2(-766, 84)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D12"]
+texture = ExtResource("3_b0q6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D12"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D12" instance=ExtResource("4_mhym6")]
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(131, 112)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D4"]
+texture = ExtResource("3_b0q6j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+scale = Vector2(6.4, 6.4)
+shape = SubResource("RectangleShape2D_vo8sw")
+
+[node name="ColorComponent" parent="StaticBody2D4" instance=ExtResource("4_mhym6")]
+node_color = 1
+
+[node name="GreenEnemy" parent="." instance=ExtResource("5_a3se8")]
+position = Vector2(121, 30)
+
+[node name="RedEnemy" parent="." instance=ExtResource("6_uty7l")]
+position = Vector2(-127, 27)
+
+[node name="YellowEnemy" parent="." instance=ExtResource("7_45l4g")]
+position = Vector2(383, 30)
+
+[node name="BlueEnemy" parent="." instance=ExtResource("8_4uo0j")]
+position = Vector2(-356, 27)
+
+[node name="PurpleEnemy" parent="." instance=ExtResource("9_vxl6d")]
+position = Vector2(-633, 41)
+
+[node name="GreenFruit" parent="." instance=ExtResource("10_eski5")]
+position = Vector2(-33, 7)
+
+[node name="Fruit" parent="." instance=ExtResource("11_pdf00")]
+position = Vector2(28, 5)
+
+[node name="OrangeEnemy" parent="." instance=ExtResource("12_a6gra")]
+position = Vector2(633, 36)
+
+[connection signal="dashing" from="Chef" to="Camera2D" method="_on_chef_dashing"]

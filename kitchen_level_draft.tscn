@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cjva2rt8jb4jq" path="res://Objects/Enemy/Scenes/GreenEnemy.tscn" id="8_tdlws"]
 [ext_resource type="Texture2D" uid="uid://d316wtj3qs3k0" path="res://Level Assets/kitchen_and_desert.png" id="8_tvdrn"]
 [ext_resource type="AudioStream" uid="uid://c0xludg2ytus0" path="res://Level Assets/slow_bg.wav" id="10_74tud"]
-[ext_resource type="PackedScene" path="res://Objects/Enemy/damage_area.tscn" id="10_i2fsw"]
+[ext_resource type="PackedScene" uid="uid://3w5g6pq4vn2g" path="res://Objects/Enemy/damage_area.tscn" id="10_i2fsw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i2fsw"]
 texture = ExtResource("7_2voxd")
