@@ -14,6 +14,8 @@ func process(delta: float) -> int:
 	if Input.is_action_just_pressed("dash"):
 		return ChefBaseState.State.Dashing
 
+	if chef.is_on_floor():
+		return ChefBaseState.State.Idle
 	if chef.velocity.y > 0:
 		return ChefBaseState.State.Falling
 		

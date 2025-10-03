@@ -163,10 +163,12 @@ shape = SubResource("CapsuleShape2D_3idve")
 [node name="ObstacleRightRay" type="RayCast2D" parent="."]
 position = Vector2(7, 0)
 target_position = Vector2(14, 0)
+collide_with_areas = true
 
 [node name="ObstacleLeftRay" type="RayCast2D" parent="."]
 position = Vector2(-8, 0)
 target_position = Vector2(-15, 0)
+collide_with_areas = true
 
 [node name="EnemyRightRay" type="RayCast2D" parent="."]
 position = Vector2(7, 0)

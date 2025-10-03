@@ -3,13 +3,13 @@ extends Node
 enum GameColor {RED, GREEN, BLUE, YELLOW, PURPLE, ORANGE, WHITE}
 var current_game_color : GameColor = GameColor.WHITE
 var COLOR_MAP = {
-	GameColor.RED : Color("Red").lightened(0.5),
-	GameColor.GREEN : Color("Green").lightened(0.5),
-	GameColor.BLUE : Color("Blue").lightened(0.5),
+	GameColor.RED : Color("Red"),
+	GameColor.GREEN : Color("Green"),
+	GameColor.BLUE : Color("Blue"),
 	GameColor.YELLOW : Color("Yellow"),
-	GameColor.PURPLE : Color("Purple").lightened(0.5),
+	GameColor.PURPLE : Color("Purple"),
 	GameColor.ORANGE : Color("Orange"),
-	GameColor.WHITE : Color("White").lightened(0.5),
+	GameColor.WHITE : Color("White"),
 }
 var COMPLEMENTARY_MAP = {
 	GameColor.RED : GameColor.GREEN,

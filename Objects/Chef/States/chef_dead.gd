@@ -18,6 +18,7 @@ func physics_process(delta: float) -> int:
 	if oscillation_time > 8:
 		chef_dead.emit()
 		chef.queue_free()
+		get_tree().reload_current_scene()
 		return ChefBaseState.State.Dead
 
 	oscillation_time += delta * oscillation_speed

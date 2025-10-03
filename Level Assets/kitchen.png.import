@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8cksprkkvq5x"
-path="res://.godot/imported/tile004.png-2dab93187d8a3f6ae00c6871d33740c9.ctex"
+uid="uid://bblof5pim6rjk"
+path="res://.godot/imported/kitchen.png-643f6b6a0a85853f64412b9ce9e4af7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Chef/Sprites/Dash/tile004.png"
-dest_files=["res://.godot/imported/tile004.png-2dab93187d8a3f6ae00c6871d33740c9.ctex"]
+source_file="res://Level Assets/kitchen.png"
+dest_files=["res://.godot/imported/kitchen.png-643f6b6a0a85853f64412b9ce9e4af7c.ctex"]
 
 [params]
 

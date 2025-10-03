@@ -1,5 +1,5 @@
 extends Node
-
+@export var intensity: float = 0.5
 @export var node_color: ColorController.GameColor = ColorController.GameColor.WHITE
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,4 +36,4 @@ func tint_node() -> void:
 	if get_parent().material != null:
 		get_parent().material.set_shader_parameter("tint_color", ColorController.current_game_color)
 	else:
-		get_parent().modulate = ColorController.COLOR_MAP[ColorController.current_game_color]
+		get_parent().modulate = ColorController.COLOR_MAP[ColorController.current_game_color].lightened(intensity)
