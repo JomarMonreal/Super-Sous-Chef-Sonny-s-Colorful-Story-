@@ -1,0 +1,53 @@
+[gd_scene load_steps=11 format=3 uid="uid://cwn78tabue15p"]
+
+[ext_resource type="Texture2D" uid="uid://c5nsh2dd3ku6j" path="res://Objects/Chef/Sprites/DashV2/tile000.png" id="1_4k21w"]
+[ext_resource type="Texture2D" uid="uid://doml1gqlnrmkm" path="res://Objects/Chef/Sprites/DashV2/tile001.png" id="2_po373"]
+[ext_resource type="Texture2D" uid="uid://cqdo0dl7fiukb" path="res://Objects/Chef/Sprites/DashV2/tile002.png" id="3_1e4mk"]
+[ext_resource type="Texture2D" uid="uid://di0nn5gc6wt2w" path="res://Objects/Chef/Sprites/DashV2/tile003.png" id="4_21snw"]
+[ext_resource type="Texture2D" uid="uid://bbm81iaw4s84n" path="res://Objects/Chef/Sprites/DashV2/tile004.png" id="5_c1fxk"]
+[ext_resource type="Texture2D" uid="uid://6v11frnrq2k7" path="res://Objects/Chef/Sprites/DashV2/tile005.png" id="6_wha52"]
+[ext_resource type="Texture2D" uid="uid://bld86b4xqbyq0" path="res://Objects/Chef/Sprites/DashV2/tile006.png" id="7_4sr8c"]
+[ext_resource type="Texture2D" uid="uid://c71yf1qbndrf" path="res://Objects/Chef/Sprites/DashV2/tile007.png" id="8_1qbnn"]
+[ext_resource type="Script" uid="uid://b5j6db3q81wos" path="res://Objects/Chef/dash_after_image.gd" id="9_1e4mk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_erunv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4k21w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_po373")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1e4mk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_21snw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c1fxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wha52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4sr8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_1qbnn")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DashAfterImage" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_erunv")
+script = ExtResource("9_1e4mk")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
