@@ -28,6 +28,7 @@ default_zoom_scale = 4.5
 target = NodePath("../Chef")
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D"]
+texture_filter = 1
 offset_left = -160.0
 offset_top = -90.0
 offset_right = 160.0
