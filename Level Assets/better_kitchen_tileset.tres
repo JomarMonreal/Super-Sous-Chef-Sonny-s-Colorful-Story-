@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://mxahg0mcmres"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://be4hvw42mm6tl"]
 
 [ext_resource type="Texture2D" uid="uid://d316wtj3qs3k0" path="res://Level Assets/kitchen_and_desert.png" id="1_fj8b4"]
 [ext_resource type="Texture2D" uid="uid://xp8wjknjim6h" path="res://Level Assets/Assetver1.png" id="2_p07am"]

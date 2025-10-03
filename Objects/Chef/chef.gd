@@ -61,3 +61,7 @@ func _on_dash_controller_dash_interrupted(body: Node2D) -> void:
 					return states.change_state(ChefBaseState.State.Dead)
 				states.change_state(ChefBaseState.State.Hurt)
 		print(health_controller.health)
+
+
+func _on_area_2d_3_body_entered(body: Node2D) -> void:
+	get_tree().reload_current_scene()
