@@ -31,6 +31,5 @@ func _on_health_controller_damaged(amount: float) -> void:
 
 
 func _on_health_controller_dead() -> void:
-	$Node/EnemyDeath.play()
-	await $Node/EnemyDeath.finished
+	#await $Node/EnemyDeath.finished
 	queue_free()

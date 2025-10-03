@@ -1,6 +1,6 @@
 extends Node
 
-var colors_eaten: Array[ColorController.GameColor] = []
+var colors_eaten: Array[ColorController.GameColor] = [ColorController.GameColor.GREEN]
 
 var fruit_path_map = {
 	ColorController.GameColor.RED: "res://Levels/test.tscn",
