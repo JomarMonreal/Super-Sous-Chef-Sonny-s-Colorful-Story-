@@ -7,7 +7,7 @@ var knockback_damp: float = 8.0             # easing factor
 
 func enter() -> void:
 	oscillation_time = 0.0
-
+	$"../../Node/EnemyHurt".play()
 	var enemy := entity as Enemy
 	_start_blinking(enemy, 3, 0.09)
 	print(enemy.collider_entered)

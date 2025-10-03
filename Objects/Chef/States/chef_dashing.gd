@@ -5,9 +5,11 @@ var spawn_timer: float = 0.0
 var spawn_interval: float = 0.09  # spawn every 0.1s
 
 func enter() -> void:
+	
 	var chef := entity as Chef
 	spawn_timer = 0.0
 	if not chef.dash_controller.is_on_cooldown:
+		$"../../Node/ChefDash".play()
 		chef.sprite.play("Dash")
 		chef.dash_controller.start_dash(Vector2(chef.character_movement.facing, 0))
 		_spawn_after_image(chef)
