@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://w6xa2t5e72u3"]
+
+[ext_resource type="Texture2D" uid="uid://dljtrs732gdma" path="res://Level Assets/dialogue.png" id="1_l1r6p"]
+[ext_resource type="FontFile" uid="uid://bg6vs6biwi648" path="res://Level Assets/Higher.otf" id="2_hyu7m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yhn2j"]
+texture = ExtResource("1_l1r6p")
+region_rect = Rect2(0, 0, 64, 96)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x2s6s"]
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+
+[node name="Win" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Ready" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 771.0
+offset_top = 52.0
+offset_right = 811.0
+offset_bottom = 92.0
+
+[node name="Panel" type="Panel" parent="Ready"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.287
+anchor_top = -1.437
+anchor_right = 3.287
+anchor_bottom = -1.437
+offset_left = -910.48
+offset_top = 4.4800034
+offset_right = 270.52002
+offset_bottom = 655.48
+theme_override_styles/panel = SubResource("StyleBoxTexture_yhn2j")
+
+[node name="Label" type="Label" parent="Ready/Panel"]
+layout_mode = 0
+offset_left = 508.0
+offset_top = 207.0
+offset_right = 587.0
+offset_bottom = 410.0
+theme_override_colors/font_color = Color(0.019607844, 0.019607844, 0.019607844, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_hyu7m")
+theme_override_font_sizes/font_size = 19
+text = "YOU
+WIN"
+label_settings = SubResource("LabelSettings_x2s6s")

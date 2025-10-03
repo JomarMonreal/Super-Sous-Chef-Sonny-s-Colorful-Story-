@@ -20,6 +20,8 @@ func _ready() -> void:
 	states.init(self)
 	
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
 	# WARN: THIS SHIT IS ASS
 	$AnimatedSprite2D/ColorComponent.node_color = ColorController.current_game_color
 	# END OF ASS

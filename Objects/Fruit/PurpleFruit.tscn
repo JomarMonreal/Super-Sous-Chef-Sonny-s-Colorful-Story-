@@ -1,13 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://c70ssd1f8ef8k"]
+[gd_scene load_steps=14 format=3 uid="uid://ckm16h51flrkm"]
 
-[ext_resource type="Script" uid="uid://baomjtjriagbs" path="res://Objects/Fruit/fruit.gd" id="1_hhjq6"]
-[ext_resource type="Texture2D" uid="uid://df88vq4ifdm4m" path="res://Objects/Fruit/Sprites/tile003.png" id="2_urg1f"]
-[ext_resource type="Texture2D" uid="uid://bl4u3atqtxcpe" path="res://Objects/Fruit/Sprites/tile006.png" id="3_urg1f"]
-[ext_resource type="Texture2D" uid="uid://djmxosejcvkku" path="res://Objects/Fruit/Sprites/tile007.png" id="4_q6el7"]
-[ext_resource type="Texture2D" uid="uid://b2iwecij6klex" path="res://Objects/Fruit/Sprites/tile008.png" id="5_0dibi"]
-[ext_resource type="Texture2D" uid="uid://cvqd7y5nhguut" path="res://Objects/Fruit/Sprites/tile009.png" id="6_b0kuu"]
-[ext_resource type="Texture2D" uid="uid://cq2m182iutgj7" path="res://Objects/Fruit/Sprites/tile010.png" id="7_8puho"]
-[ext_resource type="Texture2D" uid="uid://csaije2vws557" path="res://Objects/Fruit/Sprites/tile011.png" id="8_5i7cl"]
+[ext_resource type="Script" uid="uid://baomjtjriagbs" path="res://Objects/Fruit/fruit.gd" id="1_h3p5c"]
+[ext_resource type="Texture2D" uid="uid://bl4u3atqtxcpe" path="res://Objects/Fruit/Sprites/tile006.png" id="3_h33d7"]
+[ext_resource type="Texture2D" uid="uid://djmxosejcvkku" path="res://Objects/Fruit/Sprites/tile007.png" id="4_d8r24"]
+[ext_resource type="Texture2D" uid="uid://b2iwecij6klex" path="res://Objects/Fruit/Sprites/tile008.png" id="5_lnoyq"]
+[ext_resource type="Texture2D" uid="uid://cvqd7y5nhguut" path="res://Objects/Fruit/Sprites/tile009.png" id="6_l61k2"]
+[ext_resource type="Texture2D" uid="uid://cq2m182iutgj7" path="res://Objects/Fruit/Sprites/tile010.png" id="7_kxfup"]
+[ext_resource type="Texture2D" uid="uid://csaije2vws557" path="res://Objects/Fruit/Sprites/tile011.png" id="8_i4k72"]
+[ext_resource type="Texture2D" uid="uid://bivexqm8s1n8e" path="res://Objects/Fruit/Sprites/tile005.png" id="8_tuufu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wmjpr"]
 radius = 5.0
@@ -16,22 +16,22 @@ radius = 5.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_urg1f")
+"texture": ExtResource("3_h33d7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_q6el7")
+"texture": ExtResource("4_d8r24")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_0dibi")
+"texture": ExtResource("5_lnoyq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_b0kuu")
+"texture": ExtResource("6_l61k2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_8puho")
+"texture": ExtResource("7_kxfup")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_5i7cl")
+"texture": ExtResource("8_i4k72")
 }],
 "loop": true,
 "name": &"default",
@@ -74,10 +74,10 @@ _data = {
 &"enlarge": SubResource("Animation_80buw")
 }
 
-[node name="BlueFruit" type="Area2D"]
+[node name="PurpleFruit" type="Area2D"]
 z_index = 10
-script = ExtResource("1_hhjq6")
-node_color = 2
+script = ExtResource("1_h3p5c")
+node_color = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_wmjpr")
@@ -89,7 +89,7 @@ autoplay = "default"
 frame_progress = 0.9900137
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_urg1f")
+texture = ExtResource("8_tuufu")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

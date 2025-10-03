@@ -1,13 +1,16 @@
-[gd_scene load_steps=11 format=4 uid="uid://ccffmg8msbo0t"]
+[gd_scene load_steps=12 format=4 uid="uid://d1yrs24ep5mgv"]
 
 [ext_resource type="Script" uid="uid://x4447en66rdk" path="res://Base/target_following_camera.gd" id="1_lswuu"]
 [ext_resource type="Texture2D" uid="uid://dyt454j64gqmm" path="res://Level Assets/Majestic_Forest_Grayscale.png" id="2_fg8fx"]
 [ext_resource type="PackedScene" uid="uid://12r0f6rnk5je" path="res://Base/Scenes/color_component.tscn" id="3_3dsu2"]
-[ext_resource type="TileSet" uid="uid://bjo5hfro08iau" path="res://Level Assets/jungle_tileset.tres" id="4_3dsu2"]
-[ext_resource type="TileSet" uid="uid://ds56cfc3c7a6b" path="res://Level Assets/mystic_tileset.tres" id="4_a2uun"]
+[ext_resource type="TileSet" uid="uid://2880nb0udqf4" path="res://Level Assets/jungle_tileset.tres" id="4_3dsu2"]
+[ext_resource type="TileSet" uid="uid://x70rgc0ncyts" path="res://Level Assets/mystic_tileset.tres" id="4_a2uun"]
 [ext_resource type="PackedScene" uid="uid://ce0unrlovwwyi" path="res://Objects/Chef/Chef.tscn" id="5_fg8fx"]
 [ext_resource type="AudioStream" uid="uid://dj861k1nhs8j1" path="res://Level Assets/mystic.wav" id="7_a2uun"]
 [ext_resource type="PackedScene" uid="uid://cjva2rt8jb4jq" path="res://Objects/Enemy/Scenes/GreenEnemy.tscn" id="8_wierf"]
+[ext_resource type="PackedScene" uid="uid://c70ssd1f8ef8k" path="res://Objects/Fruit/BlueFruit.tscn" id="8_2if0h"]
+[ext_resource type="PackedScene" uid="uid://csnkjhusfahp2" path="res://Objects/Fruit/OrangeFruit.tscn" id="9_sw1yn"]
+[ext_resource type="PackedScene" uid="uid://dm56axusn0p4o" path="res://Objects/Fruit/RainboxFruit.tscn" id="10_wmnd5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fg8fx"]
 normal = Vector2(-0.0020345051, 0.9999979)
@@ -92,3 +95,13 @@ position = Vector2(650, -255)
 shape = SubResource("RectangleShape2D_wierf")
 
 [connection signal="body_entered" from="BottomWorldBorder" to="Chef" method="_on_area_2d_3_body_entered"]
+[node name="BlueFruit" parent="." instance=ExtResource("8_2if0h")]
+position = Vector2(96, -21)
+
+[node name="OrangeFruit" parent="." instance=ExtResource("9_sw1yn")]
+position = Vector2(263, -59)
+
+[node name="RainbowFruit" parent="." instance=ExtResource("10_wmnd5")]
+position = Vector2(159, -94)
+
+[connection signal="body_entered" from="Area2D3" to="Chef" method="_on_area_2d_3_body_entered"]

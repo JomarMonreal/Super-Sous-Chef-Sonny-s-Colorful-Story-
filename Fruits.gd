@@ -1,10 +1,12 @@
 extends Node
 
-var colors_eaten: Array[ColorController.GameColor] = [ColorController.GameColor.GREEN]
+var colors_eaten: Array[ColorController.GameColor] = []
 
 var fruit_path_map = {
-	ColorController.GameColor.RED: "res://Levels/desert.tscn",
-	ColorController.GameColor.WHITE: "res://Levels/desert.tscn",
+	ColorController.GameColor.PURPLE: "res://Levels/mystic_forest.tscn",
+	ColorController.GameColor.RED: "res://Levels/forest.tscn",
+	ColorController.GameColor.GREEN: "res://Levels/desert.tscn",
+	ColorController.GameColor.WHITE: "res://Levels/win.tscn",
 }
 
 # Called when the node enters the scene tree for the first time.
