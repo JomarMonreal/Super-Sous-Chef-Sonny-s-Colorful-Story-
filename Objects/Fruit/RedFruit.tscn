@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://c1rvpwyf4k2cq"]
+
+[ext_resource type="Script" uid="uid://baomjtjriagbs" path="res://Objects/Fruit/fruit.gd" id="1_eu6n1"]
+[ext_resource type="Texture2D" uid="uid://psdhrbimk6lr" path="res://Objects/Fruit/Sprites/tile000.png" id="3_5ycqo"]
+[ext_resource type="Texture2D" uid="uid://bl4u3atqtxcpe" path="res://Objects/Fruit/Sprites/tile006.png" id="3_kt227"]
+[ext_resource type="Texture2D" uid="uid://djmxosejcvkku" path="res://Objects/Fruit/Sprites/tile007.png" id="4_0s7a3"]
+[ext_resource type="Texture2D" uid="uid://b2iwecij6klex" path="res://Objects/Fruit/Sprites/tile008.png" id="5_u3tc0"]
+[ext_resource type="Texture2D" uid="uid://cvqd7y5nhguut" path="res://Objects/Fruit/Sprites/tile009.png" id="6_d2c8r"]
+[ext_resource type="Texture2D" uid="uid://cq2m182iutgj7" path="res://Objects/Fruit/Sprites/tile010.png" id="7_7fx18"]
+[ext_resource type="Texture2D" uid="uid://csaije2vws557" path="res://Objects/Fruit/Sprites/tile011.png" id="8_qiv73"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wmjpr"]
+radius = 5.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nm2iq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_kt227")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0s7a3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u3tc0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_d2c8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7fx18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qiv73")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_tjrj5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_80buw"]
+resource_name = "enlarge"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(100, 100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ip7me"]
+_data = {
+&"RESET": SubResource("Animation_tjrj5"),
+&"enlarge": SubResource("Animation_80buw")
+}
+
+[node name="RedFruit" type="Area2D"]
+z_index = 10
+script = ExtResource("1_eu6n1")
+node_color = 0
+texture = ExtResource("3_5ycqo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wmjpr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_nm2iq")
+autoplay = "default"
+frame_progress = 0.9900137
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_5ycqo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ip7me")
+}

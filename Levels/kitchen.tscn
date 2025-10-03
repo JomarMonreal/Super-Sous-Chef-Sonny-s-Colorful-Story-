@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c6yp0q4yto2i6" path="res://Level Assets/moving platform.tscn" id="9_0pf43"]
 [ext_resource type="FontFile" uid="uid://bg6vs6biwi648" path="res://Level Assets/Higher.otf" id="9_ivwby"]
 [ext_resource type="PackedScene" uid="uid://3w5g6pq4vn2g" path="res://Objects/Enemy/damage_area.tscn" id="10_45h7f"]
-[ext_resource type="PackedScene" uid="uid://dudfudc7qqeoh" path="res://Objects/Fruit/GreenFruit.tscn" id="14_ctq47"]
+[ext_resource type="PackedScene" uid="uid://dm56axusn0p4o" path="res://Objects/Fruit/RainboxFruit.tscn" id="14_ctq47"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i2fsw"]
 texture = ExtResource("8_k6unl")
@@ -366,7 +366,7 @@ region_rect = Rect2(1, 26, 46, 4)
 [node name="GreenEnemy3" parent="." instance=ExtResource("8_h8ft4")]
 position = Vector2(1917, 29)
 
-[node name="GreenFruit" parent="." instance=ExtResource("14_ctq47")]
-position = Vector2(2202, -48)
+[node name="RainbowFruit" parent="." instance=ExtResource("14_ctq47")]
+position = Vector2(2214, -49)
 
 [connection signal="body_entered" from="Area2D3" to="Chef" method="_on_area_2d_3_body_entered"]

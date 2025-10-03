@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ctkwel4o053ls" path="res://Objects/Enemy/Scenes/YellowEnemy.tscn" id="7_45l4g"]
 [ext_resource type="PackedScene" uid="uid://bllhatsjhxu8h" path="res://Objects/Enemy/Scenes/BlueEnemy.tscn" id="8_4uo0j"]
 [ext_resource type="PackedScene" uid="uid://bo7lh60tiloe4" path="res://Objects/Enemy/Scenes/PurpleEnemy.tscn" id="9_vxl6d"]
-[ext_resource type="PackedScene" uid="uid://c1rvpwyf4k2cq" path="res://Objects/Fruit/Fruit.tscn" id="10_eski5"]
+[ext_resource type="PackedScene" uid="uid://c1rvpwyf4k2cq" path="res://Objects/Fruit/RedFruit.tscn" id="10_eski5"]
 [ext_resource type="PackedScene" uid="uid://dudfudc7qqeoh" path="res://Objects/Fruit/GreenFruit.tscn" id="11_pdf00"]
 [ext_resource type="PackedScene" uid="uid://djx4r5pffn40l" path="res://Objects/Enemy/Scenes/OrangeEnemy.tscn" id="12_a6gra"]
 

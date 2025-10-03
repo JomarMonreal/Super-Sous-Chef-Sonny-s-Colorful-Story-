@@ -126,8 +126,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3idve"]
-radius = 7.0
-height = 18.0
+height = 22.0
 
 [node name="BlueEnemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -138,14 +137,13 @@ node_color = 2
 script = ExtResource("2_dxjjj")
 left_ray = NodePath("../ObstacleLeftRay")
 right_ray = NodePath("../ObstacleRightRay")
-is_facing_right = false
 visual_path = NodePath("../AnimatedSprite2D")
 
 [node name="HealthController" parent="." instance=ExtResource("3_dxjjj")]
 health = 3
 
 [node name="DashController" parent="." instance=ExtResource("3_pfufw")]
-dash_distance = 40.0
+dash_distance = 10.0
 dash_speed = 100.0
 dash_cooldown = 1.0
 dash_delay = 0.4
@@ -156,7 +154,7 @@ sprite_frames = SubResource("SpriteFrames_i2r1b")
 animation = &"Attacking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 4)
+position = Vector2(-4, 0)
 rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_3idve")
 
@@ -172,11 +170,11 @@ collide_with_areas = true
 
 [node name="EnemyRightRay" type="RayCast2D" parent="."]
 position = Vector2(7, 0)
-target_position = Vector2(30, 0)
+target_position = Vector2(18, 0)
 
 [node name="EnemyLeftRay" type="RayCast2D" parent="."]
 position = Vector2(-8, 0)
-target_position = Vector2(-30, 0)
+target_position = Vector2(-20, 0)
 
 [node name="EnemyStateManager" type="Node" parent="."]
 script = ExtResource("28_1yyh7")

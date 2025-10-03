@@ -23,4 +23,7 @@ func eat():
 		queue_free()
 		
 func change_scene() -> void:
-	get_tree().change_scene_to_file(Fruits.fruit_path_map[node_color])
+	if node_color in Fruits.fruit_path_map:
+		var next_scene = Fruits.fruit_path_map[node_color]
+		if next_scene:
+			get_tree().change_scene_to_file(next_scene)
