@@ -9,7 +9,7 @@ func enter() -> void:
 	var chef := entity as Chef
 	spawn_timer = 0.0
 	if not chef.dash_controller.is_on_cooldown:
-		$"../../Node/ChefDash".play()
+		chef.sfx_controller.play(SFXController.SFX.ATTACK)
 		chef.sprite.play("Dash")
 		chef.dash_controller.start_dash(Vector2(chef.character_movement.facing, 0))
 		_spawn_after_image(chef)

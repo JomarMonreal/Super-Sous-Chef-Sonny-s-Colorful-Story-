@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cjva2rt8jb4jq"]
+[gd_scene load_steps=39 format=3 uid="uid://cjva2rt8jb4jq"]
 
 [ext_resource type="Script" uid="uid://1pys037seihn" path="res://Objects/Enemy/enemy.gd" id="1_bnjh4"]
 [ext_resource type="Script" uid="uid://dh0phk40nl2nm" path="res://Base/side_scrolling_walk_movement.gd" id="2_sejbl"]
@@ -34,7 +34,8 @@
 [ext_resource type="Script" uid="uid://b0m6vfj64ub4" path="res://Objects/Enemy/States/enemy_guarding.gd" id="31_t130l"]
 [ext_resource type="Script" uid="uid://b4e0c34megjsp" path="res://Objects/Enemy/enemy_state.gd" id="32_skhwi"]
 [ext_resource type="Script" uid="uid://ec84adcjxicg" path="res://Objects/Enemy/States/enemy_hurt.gd" id="33_rytl7"]
-[ext_resource type="AudioStream" uid="uid://5uxjoa72vaij" path="res://Objects/Enemy/Sounds/Green/enemy_hurt.wav" id="35_ci7jh"]
+[ext_resource type="PackedScene" uid="uid://bf2rkbs7e6h7n" path="res://Base/Scenes/sfx_controller.tscn" id="35_ci7jh"]
+[ext_resource type="AudioStream" uid="uid://5uxjoa72vaij" path="res://Objects/Enemy/Sounds/Green/enemy_hurt.wav" id="36_jstcu"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i2r1b"]
 animations = [{
@@ -204,16 +205,8 @@ metadata/_custom_type_script = "uid://b4e0c34megjsp"
 script = ExtResource("32_skhwi")
 metadata/_custom_type_script = "uid://b4e0c34megjsp"
 
-[node name="Node" type="Node" parent="."]
-
-[node name="EnemyHurt" type="AudioStreamPlayer" parent="Node"]
-stream = ExtResource("35_ci7jh")
-volume_db = -10.0
-
-[node name="EnemyDeath" type="AudioStreamPlayer" parent="Node"]
-stream = ExtResource("35_ci7jh")
-volume_db = -20.0
-pitch_scale = 0.5
+[node name="SFXController" parent="." instance=ExtResource("35_ci7jh")]
+die = Array[AudioStream]([ExtResource("36_jstcu")])
 
 [connection signal="damaged" from="HealthController" to="." method="_on_health_controller_damaged"]
 [connection signal="dead" from="HealthController" to="." method="_on_health_controller_dead"]

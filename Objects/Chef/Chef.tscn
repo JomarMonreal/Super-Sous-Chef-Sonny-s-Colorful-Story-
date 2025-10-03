@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://ce0unrlovwwyi"]
+[gd_scene load_steps=57 format=3 uid="uid://ce0unrlovwwyi"]
 
 [ext_resource type="Script" uid="uid://bi3gflgcsroe4" path="res://Objects/Chef/chef.gd" id="1_bh4l4"]
 [ext_resource type="Script" uid="uid://b2p5g7u0f5l02" path="res://Objects/Chef/chef_state_manager.gd" id="1_lp5fg"]
@@ -51,6 +51,7 @@
 [ext_resource type="Script" uid="uid://g548ap058on1" path="res://Objects/Chef/States/chef_dead.gd" id="41_1d1m7"]
 [ext_resource type="AudioStream" uid="uid://cdhyhw3fbiky7" path="res://Objects/Chef/Sounds/chef_jump.wav" id="50_gn3ia"]
 [ext_resource type="AudioStream" uid="uid://dn60f2odqu5i0" path="res://Objects/Chef/Sounds/chef_dash.wav" id="51_2hvyt"]
+[ext_resource type="PackedScene" uid="uid://bf2rkbs7e6h7n" path="res://Base/Scenes/sfx_controller.tscn" id="52_4g66w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yjrt3"]
 shader = ExtResource("5_6dtab")
@@ -330,6 +331,11 @@ volume_db = -14.123
 [node name="ChefDash" type="AudioStreamPlayer" parent="Node"]
 stream = ExtResource("51_2hvyt")
 volume_db = -14.0
+
+[node name="SFXManager" parent="." instance=ExtResource("52_4g66w")]
+attack = Array[AudioStream]([ExtResource("51_2hvyt")])
+jump = Array[AudioStream]([ExtResource("50_gn3ia")])
+random_pitch_range = 0.1
 
 [connection signal="timeout" from="HealthController/HurtCooldownTimer" to="HealthController" method="_on_hurt_cooldown_timer_timeout"]
 [connection signal="dash_interrupted" from="DashController" to="." method="_on_dash_controller_dash_interrupted"]

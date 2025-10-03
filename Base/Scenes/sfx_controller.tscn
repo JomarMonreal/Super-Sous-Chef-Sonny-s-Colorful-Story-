@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf2rkbs7e6h7n"]
+
+[ext_resource type="Script" uid="uid://betbow6biu611" path="res://Base/sfx_manager.gd" id="1_ggith"]
+[ext_resource type="AudioStream" uid="uid://5uxjoa72vaij" path="res://Objects/Enemy/Sounds/Green/enemy_hurt.wav" id="2_uxs8k"]
+
+[node name="SFXController" type="Node2D"]
+script = ExtResource("1_ggith")
+hurt = Array[AudioStream]([ExtResource("2_uxs8k")])

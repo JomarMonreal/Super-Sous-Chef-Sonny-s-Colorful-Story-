@@ -8,6 +8,8 @@ var knockback_damp: float = 8.0             # easing factor
 func enter() -> void:
 	oscillation_time = 0.0
 	var enemy := entity as Enemy
+	if enemy.sfx_controller:
+		enemy.sfx_controller.play(SFXController.SFX.HURT)
 	_start_blinking(enemy, 3, 0.09)
 	print(enemy.collider_entered)
 

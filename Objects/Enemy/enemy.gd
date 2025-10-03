@@ -8,6 +8,7 @@ class_name Enemy
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var dash_controller: DashController = $DashController
 @onready var health_controller: HealthController = $HealthController
+@onready var sfx_controller: SFXController = $SFXController
 
 var collider_entered: Node2D
 
@@ -31,5 +32,9 @@ func _on_health_controller_damaged(amount: float) -> void:
 
 
 func _on_health_controller_dead() -> void:
-	#await $Node/EnemyDeath.finished
+	await sfx_controller.play(SFXController.SFX.DIE)
+	states.change_state(EnemyBaseState.State.Attaking)
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.5)
+	await tween.finished
 	queue_free()

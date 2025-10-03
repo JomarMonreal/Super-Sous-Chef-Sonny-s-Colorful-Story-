@@ -7,6 +7,8 @@ class_name Chef
 @onready var dash_controller: DashController = $DashController
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_controller: HealthController = $HealthController
+@onready var sfx_controller: SFXController = $SFXManager
+
 var colors_unlocked: Array[String] = []
 
 var enemy_entered: Node2D
