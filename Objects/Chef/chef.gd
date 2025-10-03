@@ -7,6 +7,7 @@ class_name Chef
 @onready var dash_controller: DashController = $DashController
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_controller: HealthController = $HealthController
+var colors_unlocked: Array[String] = []
 
 var enemy_entered: Node2D
 
@@ -65,3 +66,10 @@ func _on_dash_controller_dash_interrupted(body: Node2D) -> void:
 
 func _on_area_2d_3_body_entered(body: Node2D) -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	if area is Fruit:
+		Fruits.colors_eaten.append(area.node_color)
+		area.eat()
+	pass # Replace with function body.

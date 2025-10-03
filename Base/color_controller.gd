@@ -22,17 +22,17 @@ var COMPLEMENTARY_MAP = {
 }
 
 func set_food() -> void:
-	if Input.is_action_just_pressed("eat_red"):
+	if Input.is_action_just_pressed("eat_red") and GameColor.RED in Fruits.colors_eaten:
 		current_game_color = GameColor.RED
-	if Input.is_action_just_pressed("eat_green"):
+	if Input.is_action_just_pressed("eat_green") and GameColor.GREEN in Fruits.colors_eaten:
 		current_game_color = GameColor.GREEN
-	if Input.is_action_just_pressed("eat_blue"):
+	if Input.is_action_just_pressed("eat_blue") and GameColor.BLUE in Fruits.colors_eaten:
 		current_game_color = GameColor.BLUE
-	if Input.is_action_just_pressed("eat_yellow"):
+	if Input.is_action_just_pressed("eat_yellow") and GameColor.YELLOW in Fruits.colors_eaten:
 		current_game_color = GameColor.YELLOW
-	if Input.is_action_just_pressed("eat_purple"):
+	if Input.is_action_just_pressed("eat_purple") and GameColor.PURPLE in Fruits.colors_eaten:
 		current_game_color = GameColor.PURPLE
-	if Input.is_action_just_pressed("eat_orange"):
+	if Input.is_action_just_pressed("eat_orange") and GameColor.ORANGE in Fruits.colors_eaten:
 		current_game_color = GameColor.ORANGE
 
 func get_food() -> void:

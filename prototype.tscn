@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpuroer1onh7n"]
+[gd_scene load_steps=14 format=3 uid="uid://bpuroer1onh7n"]
 
 [ext_resource type="Script" uid="uid://x4447en66rdk" path="res://Base/target_following_camera.gd" id="1_883nb"]
 [ext_resource type="PackedScene" uid="uid://ce0unrlovwwyi" path="res://Objects/Chef/Chef.tscn" id="1_vo8sw"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bllhatsjhxu8h" path="res://Objects/Enemy/Scenes/BlueEnemy.tscn" id="7_8y2k3"]
 [ext_resource type="PackedScene" uid="uid://bo7lh60tiloe4" path="res://Objects/Enemy/Scenes/PurpleEnemy.tscn" id="8_1hs15"]
 [ext_resource type="PackedScene" uid="uid://djx4r5pffn40l" path="res://Objects/Enemy/Scenes/OrangeEnemy.tscn" id="9_bk8nm"]
+[ext_resource type="PackedScene" uid="uid://dudfudc7qqeoh" path="res://Objects/Fruit/GreenFruit.tscn" id="11_h681u"]
+[ext_resource type="PackedScene" uid="uid://c1rvpwyf4k2cq" path="res://Objects/Fruit/Fruit.tscn" id="11_vm637"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vo8sw"]
 
@@ -221,6 +223,12 @@ position = Vector2(-356, 27)
 
 [node name="PurpleEnemy" parent="." instance=ExtResource("8_1hs15")]
 position = Vector2(-633, 41)
+
+[node name="GreenFruit" parent="." instance=ExtResource("11_vm637")]
+position = Vector2(-33, 7)
+
+[node name="Fruit" parent="." instance=ExtResource("11_h681u")]
+position = Vector2(28, 5)
 
 [node name="OrangeEnemy" parent="." instance=ExtResource("9_bk8nm")]
 position = Vector2(633, 36)
