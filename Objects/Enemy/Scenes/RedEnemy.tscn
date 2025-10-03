@@ -142,7 +142,7 @@ is_facing_right = false
 visual_path = NodePath("../AnimatedSprite2D")
 
 [node name="HealthController" parent="." instance=ExtResource("3_dem81")]
-health = 5
+health = 3
 
 [node name="DashController" parent="." instance=ExtResource("3_3daaw")]
 dash_distance = 0.0

@@ -141,6 +141,7 @@ right_ray = NodePath("../ObstacleRightRay")
 visual_path = NodePath("../AnimatedSprite2D")
 
 [node name="HealthController" parent="." instance=ExtResource("3_l23e2")]
+health = 3
 
 [node name="DashController" parent="." instance=ExtResource("3_qy8ss")]
 dash_distance = 40.0
@@ -159,10 +160,12 @@ shape = SubResource("CapsuleShape2D_3idve")
 [node name="ObstacleRightRay" type="RayCast2D" parent="."]
 position = Vector2(7, 0)
 target_position = Vector2(14, 0)
+collide_with_areas = true
 
 [node name="ObstacleLeftRay" type="RayCast2D" parent="."]
 position = Vector2(-8, 0)
 target_position = Vector2(-15, 0)
+collide_with_areas = true
 
 [node name="EnemyRightRay" type="RayCast2D" parent="."]
 position = Vector2(7, 0)
