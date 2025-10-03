@@ -11,6 +11,15 @@ var COLOR_MAP = {
 	GameColor.ORANGE : Color("Orange"),
 	GameColor.WHITE : Color("White").lightened(0.5),
 }
+var COMPLEMENTARY_MAP = {
+	GameColor.RED : GameColor.GREEN,
+	GameColor.GREEN : GameColor.RED,
+	GameColor.BLUE : GameColor.ORANGE,
+	GameColor.YELLOW : GameColor.PURPLE,
+	GameColor.PURPLE : GameColor.YELLOW,
+	GameColor.ORANGE : GameColor.BLUE,
+	GameColor.WHITE : null
+}
 
 func set_food() -> void:
 	if Input.is_action_just_pressed("eat_red"):

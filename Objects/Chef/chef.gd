@@ -17,6 +17,9 @@ func _ready() -> void:
 	states.init(self)
 	
 func _process(delta: float) -> void:
+	# WARN: THIS SHIT IS ASS
+	$AnimatedSprite2D/ColorComponent.node_color = ColorController.current_game_color
+	# END OF ASS
 	states.process(delta)
 
 func _physics_process(delta: float) -> void:
@@ -31,7 +34,7 @@ func _on_dash_controller_dash_start() -> void:
 func _on_hitbox_body_entered(body: Node2D) -> void:
 	if ((body is Enemy or body is Bullet) and !health_controller.is_hurt and !dash_controller.is_on_cooldown):
 		if body is Enemy:
-			print(body)
+			
 			health_controller.take_damage(1)
 			enemy_entered = body
 			
@@ -47,7 +50,10 @@ func _on_dash_controller_dash_interrupted(body: Node2D) -> void:
 			enemy_entered = body
 			enemy_entered.collider_entered = self
 			if body.states.current_state != body.states.states[EnemyBaseState.State.Guarding]:
-				body.health_controller.take_damage(1)
+				print("enemy color: ", body.node_color)
+				print("chef color: ", $AnimatedSprite2D/ColorComponent.node_color)
+				if body.node_color == ColorController.COMPLEMENTARY_MAP[$AnimatedSprite2D/ColorComponent.node_color]:
+					body.health_controller.take_damage(1)
 			else:
 				health_controller.take_damage(1)
 				
