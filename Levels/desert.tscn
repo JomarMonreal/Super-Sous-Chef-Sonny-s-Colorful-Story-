@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dhkyk2mrnb50j"]
+[gd_scene load_steps=17 format=4 uid="uid://dhkyk2mrnb50j"]
 
 [ext_resource type="Script" uid="uid://x4447en66rdk" path="res://Base/target_following_camera.gd" id="1_ardvj"]
 [ext_resource type="Texture2D" uid="uid://doqlv3ufj6wd" path="res://Level Assets/Desert_Background_Grayscale.png" id="2_enk3p"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c6yp0q4yto2i6" path="res://Level Assets/moving platform.tscn" id="9_2scnf"]
 [ext_resource type="Texture2D" uid="uid://cykvnniwsnqnf" path="res://Level Assets/kitchen_and_desert.png" id="10_i67hi"]
 [ext_resource type="PackedScene" uid="uid://c1rvpwyf4k2cq" path="res://Objects/Fruit/RedFruit.tscn" id="11_enk3p"]
+[ext_resource type="PackedScene" uid="uid://dudfudc7qqeoh" path="res://Objects/Fruit/GreenFruit.tscn" id="12_6c331"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tm071"]
 size = Vector2(4, 20)
@@ -168,4 +169,7 @@ position = Vector2(1428, -4)
 scale = Vector2(2.0399609, 0.3600003)
 
 [node name="RedFruit" parent="." instance=ExtResource("11_enk3p")]
-position = Vector2(99, -19)
+position = Vector2(176, -20)
+
+[node name="GreenFruit" parent="." instance=ExtResource("12_6c331")]
+position = Vector2(89, -17)
