@@ -1,19 +1,20 @@
-[gd_scene load_steps=25 format=4 uid="uid://dnqyeuoys1jmu"]
+[gd_scene load_steps=26 format=4 uid="uid://dnqyeuoys1jmu"]
 
 [ext_resource type="Script" uid="uid://x4447en66rdk" path="res://Base/target_following_camera.gd" id="1_jluyr"]
 [ext_resource type="Texture2D" uid="uid://bblof5pim6rjk" path="res://Level Assets/kitchen.png" id="2_k6unl"]
 [ext_resource type="PackedScene" uid="uid://12r0f6rnk5je" path="res://Base/Scenes/color_component.tscn" id="3_ivwby"]
+[ext_resource type="PackedScene" uid="uid://cxecnrau44d4k" path="res://Levels/HealthUI.tscn" id="4_3echv"]
 [ext_resource type="PackedScene" uid="uid://ce0unrlovwwyi" path="res://Objects/Chef/Chef.tscn" id="4_scder"]
-[ext_resource type="AudioStream" uid="uid://c0xludg2ytus0" path="res://Level Assets/slow_bg.wav" id="5_jluyr"]
 [ext_resource type="TileSet" uid="uid://c7jvw8b2jhocw" path="res://Level Assets/kitchen_tileset.tres" id="5_m008p"]
 [ext_resource type="TileSet" uid="uid://mxahg0mcmres" path="res://Level Assets/better_kitchen_tileset.tres" id="6_06717"]
-[ext_resource type="Texture2D" uid="uid://cykvnniwsnqnf" path="res://Level Assets/kitchen_and_desert.png" id="7_anvgo"]
+[ext_resource type="Texture2D" uid="uid://d102uiuk8q01a" path="res://Level Assets/kitchen_and_desert.png" id="7_anvgo"]
 [ext_resource type="PackedScene" uid="uid://cjva2rt8jb4jq" path="res://Objects/Enemy/Scenes/GreenEnemy.tscn" id="8_h8ft4"]
 [ext_resource type="Texture2D" uid="uid://dljtrs732gdma" path="res://Level Assets/dialogue.png" id="8_k6unl"]
 [ext_resource type="PackedScene" uid="uid://c6yp0q4yto2i6" path="res://Level Assets/moving platform.tscn" id="9_0pf43"]
 [ext_resource type="FontFile" uid="uid://bg6vs6biwi648" path="res://Level Assets/Higher.otf" id="9_ivwby"]
 [ext_resource type="PackedScene" uid="uid://3w5g6pq4vn2g" path="res://Objects/Enemy/damage_area.tscn" id="10_45h7f"]
-[ext_resource type="PackedScene" uid="uid://3inafho62xxd" path="res://Objects/Fruit/YellowFruit.tscn" id="14_ctq47"]
+[ext_resource type="PackedScene" path="res://Objects/Fruit/YellowFruit.tscn" id="14_ctq47"]
+[ext_resource type="AudioStream" uid="uid://bw5bshereifh1" path="res://Level Assets/cooking-19473.mp3" id="16_y53r8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i2fsw"]
 texture = ExtResource("8_k6unl")
@@ -123,15 +124,15 @@ texture = ExtResource("2_k6unl")
 [node name="ColorComponent" parent="Camera2D/TextureRect" instance=ExtResource("3_ivwby")]
 intensity = 0.75
 
+[node name="HealthUI" parent="Camera2D" instance=ExtResource("4_3echv")]
+offset_left = -119.0
+offset_top = 48.0
+offset_right = -4.0
+offset_bottom = 77.0
+
 [node name="Chef" parent="." instance=ExtResource("4_scder")]
 z_index = 6
-position = Vector2(15, -14)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Chef"]
-position = Vector2(-15, 14)
-stream = ExtResource("5_jluyr")
-volume_db = -10.0
-autoplay = true
+position = Vector2(16, -14)
 
 [node name="TileMapLayerBG2" type="TileMapLayer" parent="."]
 position = Vector2(0, -1)
@@ -369,4 +370,10 @@ position = Vector2(1917, 29)
 [node name="YellowFruit" parent="." instance=ExtResource("14_ctq47")]
 position = Vector2(2200, -49)
 
+[node name="Cooking19473" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(424, -64)
+stream = ExtResource("16_y53r8")
+autoplay = true
+
+[connection signal="hurt" from="Chef" to="Camera2D/HealthUI" method="_on_chef_hurt"]
 [connection signal="body_entered" from="Area2D3" to="Chef" method="_on_area_2d_3_body_entered"]

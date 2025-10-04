@@ -14,6 +14,7 @@ var colors_unlocked: Array[String] = []
 var enemy_entered: Node2D
 
 signal dashing
+signal hurt(amount: int)
 
 
 func _ready() -> void:
@@ -51,8 +52,8 @@ func _on_hitbox_body_entered(body: Node2D) -> void:
 
 
 func _on_dash_controller_dash_interrupted(body: Node2D) -> void:
-	if ((body is Enemy or body is Bullet) and !health_controller.is_hurt):
-		if body is Enemy:
+	if ((body is Enemy or body is Bullet or body is Boss) and !health_controller.is_hurt):
+		if body is Enemy or body is Boss:
 			enemy_entered = body
 			enemy_entered.collider_entered = self
 			if body.states.current_state != body.states.states[EnemyBaseState.State.Guarding]:
@@ -78,3 +79,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		Fruits.colors_eaten.append(area.node_color)
 		area.eat()
 	pass # Replace with function body.
+
+
+func _on_health_controller_damaged(amount: float) -> void:
+	hurt.emit(amount)
