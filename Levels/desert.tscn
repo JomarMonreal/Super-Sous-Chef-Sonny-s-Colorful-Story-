@@ -154,9 +154,9 @@ intensity = 0.75
 
 [node name="HealthUI" parent="Camera2D" instance=ExtResource("5_bgrxs")]
 offset_left = -123.0
-offset_top = 49.0
+offset_top = 37.0
 offset_right = -8.0
-offset_bottom = 78.0
+offset_bottom = 66.0
 
 [node name="Chef" parent="." instance=ExtResource("4_4rcxv")]
 z_index = 6

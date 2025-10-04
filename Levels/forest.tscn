@@ -43,9 +43,9 @@ intensity = 0.75
 
 [node name="HealthUI" parent="Camera2D" instance=ExtResource("5_vrdib")]
 offset_left = -151.0
-offset_top = 63.0
+offset_top = 53.0
 offset_right = -36.0
-offset_bottom = 92.0
+offset_bottom = 82.0
 
 [node name="Jungle" type="AudioStreamPlayer2D" parent="Camera2D"]
 position = Vector2(133, 23)
