@@ -132,7 +132,7 @@ offset_bottom = 77.0
 
 [node name="Chef" parent="." instance=ExtResource("4_scder")]
 z_index = 6
-position = Vector2(15, -14)
+position = Vector2(16, -14)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Chef"]
 position = Vector2(-15, 14)
