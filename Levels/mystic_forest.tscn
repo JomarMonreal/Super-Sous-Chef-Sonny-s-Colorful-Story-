@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://ccffmg8msbo0t"]
+[gd_scene load_steps=15 format=4 uid="uid://ccffmg8msbo0t"]
 
 [ext_resource type="Script" uid="uid://x4447en66rdk" path="res://Base/target_following_camera.gd" id="1_lswuu"]
+[ext_resource type="Script" uid="uid://y5k8eicakp1t" path="res://Levels/mystic_forest.gd" id="1_wmnd5"]
 [ext_resource type="Texture2D" uid="uid://dyt454j64gqmm" path="res://Level Assets/Majestic_Forest_Grayscale.png" id="2_fg8fx"]
 [ext_resource type="PackedScene" uid="uid://12r0f6rnk5je" path="res://Base/Scenes/color_component.tscn" id="3_3dsu2"]
 [ext_resource type="TileSet" uid="uid://2880nb0udqf4" path="res://Level Assets/jungle_tileset.tres" id="4_3dsu2"]
@@ -18,6 +19,7 @@ normal = Vector2(-0.0020345051, 0.9999979)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wierf"]
 
 [node name="MysticForest" type="Node2D"]
+script = ExtResource("1_wmnd5")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(21, -11)

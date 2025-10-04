@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=4 uid="uid://dhkyk2mrnb50j"]
+[gd_scene load_steps=18 format=4 uid="uid://dhkyk2mrnb50j"]
 
+[ext_resource type="Script" uid="uid://bkaog1qwyagi3" path="res://Levels/desert.gd" id="1_4rcxv"]
 [ext_resource type="Script" uid="uid://x4447en66rdk" path="res://Base/target_following_camera.gd" id="1_ardvj"]
 [ext_resource type="Texture2D" uid="uid://doqlv3ufj6wd" path="res://Level Assets/Desert_Background_Grayscale.png" id="2_enk3p"]
 [ext_resource type="PackedScene" uid="uid://12r0f6rnk5je" path="res://Base/Scenes/color_component.tscn" id="3_6c331"]
@@ -55,6 +56,7 @@ _data = {
 }
 
 [node name="desert" type="Node"]
+script = ExtResource("1_4rcxv")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(21, -11)
