@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=3 uid="uid://duhyiji8uufy2"]
+
+[ext_resource type="Texture2D" uid="uid://bblof5pim6rjk" path="res://Level Assets/kitchen.png" id="1_sbixa"]
+[ext_resource type="Texture2D" uid="uid://da08qmvqw05gq" path="res://Level Assets/buttons.png" id="2_16q67"]
+[ext_resource type="Script" uid="uid://clebmqcldhp4c" path="res://Levels/menu.gd" id="2_m1ans"]
+[ext_resource type="FontFile" uid="uid://bh3ga0nrw45yh" path="res://Level Assets/editundo.ttf" id="3_16q67"]
+[ext_resource type="AudioStream" uid="uid://bw5bshereifh1" path="res://Level Assets/cooking-19473.mp3" id="5_xarby"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1ans"]
+atlas = ExtResource("2_16q67")
+region = Rect2(16.694824, 20.024063, 107.814514, 43.38651)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xarby"]
+atlas = ExtResource("2_16q67")
+region = Rect2(195.40758, 25.598957, 110.328995, 44.131596)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k63d0"]
+atlas = ExtResource("2_16q67")
+region = Rect2(196.43388, 25.598957, 110.328995, 43.10528)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18qad"]
+atlas = ExtResource("2_16q67")
+region = Rect2(14.276352, 71.894775, 107.76319, 42.592117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s77f"]
+atlas = ExtResource("2_16q67")
+region = Rect2(193.86809, 69.73055, 105.1974, 42.078964)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjoy5"]
+atlas = ExtResource("2_16q67")
+region = Rect2(193.35493, 68.70424, 107.250046, 43.105278)
+
+[node name="Control" type="TextureRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_sbixa")
+script = ExtResource("2_m1ans")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 648.0
+color = Color(0.015686275, 0.015686275, 0.015686275, 0.1254902)
+
+[node name="Play" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 376.0
+offset_right = 342.0
+offset_bottom = 487.0
+texture_normal = SubResource("AtlasTexture_m1ans")
+texture_pressed = SubResource("AtlasTexture_xarby")
+texture_hover = SubResource("AtlasTexture_k63d0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Quit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 491.0
+offset_right = 341.0
+offset_bottom = 600.0
+texture_normal = SubResource("AtlasTexture_18qad")
+texture_pressed = SubResource("AtlasTexture_3s77f")
+texture_hover = SubResource("AtlasTexture_mjoy5")
+stretch_mode = 0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 678.0
+offset_top = 440.0
+offset_right = 1164.0
+offset_bottom = 569.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 686.0
+offset_top = 459.0
+offset_right = 1131.0
+offset_bottom = 552.0
+theme_override_colors/font_color = Color(0.0056611504, 0.0056611514, 0.00566115, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_16q67")
+theme_override_font_sizes/font_size = 50
+text = "Sous Chef Sonny's Colorful Story"
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="Cooking19473" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(424, -64)
+stream = ExtResource("5_xarby")
+autoplay = true
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

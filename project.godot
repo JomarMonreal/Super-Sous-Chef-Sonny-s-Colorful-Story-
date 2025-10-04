@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Tanghalian"
-run/main_scene="uid://dnqyeuoys1jmu"
+run/main_scene="uid://duhyiji8uufy2"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

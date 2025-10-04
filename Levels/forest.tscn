@@ -1,16 +1,16 @@
 [gd_scene load_steps=18 format=4 uid="uid://dnkkuyg1q5wk8"]
 
 [ext_resource type="Script" uid="uid://x4447en66rdk" path="res://Base/target_following_camera.gd" id="1_3v255"]
-[ext_resource type="Script" path="res://Levels/forest.gd" id="1_fmpjp"]
-[ext_resource type="Texture2D" uid="uid://dyt454j64gqmm" path="res://Level Assets/Majestic_Forest_Grayscale.png" id="2_nh2jm"]
+[ext_resource type="Script" uid="uid://dh0mohpvpyskq" path="res://Levels/forest.gd" id="1_fmpjp"]
+[ext_resource type="Texture2D" uid="uid://bafoffxirssyu" path="res://Level Assets/Jungle_Background_Grayscale.png" id="3_5dxj7"]
 [ext_resource type="PackedScene" uid="uid://12r0f6rnk5je" path="res://Base/Scenes/color_component.tscn" id="3_fmpjp"]
 [ext_resource type="TileSet" uid="uid://2880nb0udqf4" path="res://Level Assets/jungle_tileset.tres" id="4_531a0"]
 [ext_resource type="PackedScene" uid="uid://cxecnrau44d4k" path="res://Levels/HealthUI.tscn" id="5_vrdib"]
 [ext_resource type="AudioStream" uid="uid://dq14a46iw5mp1" path="res://Level Assets/jungle.wav" id="6_5dxj7"]
 [ext_resource type="PackedScene" uid="uid://ce0unrlovwwyi" path="res://Objects/Chef/Chef.tscn" id="6_ckj4g"]
 [ext_resource type="AudioStream" uid="uid://dj861k1nhs8j1" path="res://Level Assets/mystic.wav" id="7_ub67l"]
-[ext_resource type="PackedScene" path="res://Objects/Fruit/PurpleFruit.tscn" id="9_531a0"]
-[ext_resource type="PackedScene" path="res://Objects/Fruit/BlueFruit.tscn" id="9_fmpjp"]
+[ext_resource type="PackedScene" uid="uid://ckm16h51flrkm" path="res://Objects/Fruit/PurpleFruit.tscn" id="9_531a0"]
+[ext_resource type="PackedScene" uid="uid://c70ssd1f8ef8k" path="res://Objects/Fruit/BlueFruit.tscn" id="9_fmpjp"]
 [ext_resource type="PackedScene" uid="uid://bllhatsjhxu8h" path="res://Objects/Enemy/Scenes/BlueEnemy.tscn" id="10_ckj4g"]
 [ext_resource type="PackedScene" uid="uid://cjva2rt8jb4jq" path="res://Objects/Enemy/Scenes/GreenEnemy.tscn" id="11_ub67l"]
 [ext_resource type="PackedScene" uid="uid://djx4r5pffn40l" path="res://Objects/Enemy/Scenes/OrangeEnemy.tscn" id="12_ckj4g"]
@@ -36,7 +36,7 @@ offset_left = -160.0
 offset_top = -90.0
 offset_right = 160.0
 offset_bottom = 90.0
-texture = ExtResource("2_nh2jm")
+texture = ExtResource("3_5dxj7")
 
 [node name="ColorComponent" parent="Camera2D/TextureRect" instance=ExtResource("3_fmpjp")]
 intensity = 0.75
