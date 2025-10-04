@@ -34,3 +34,8 @@ func process(delta: float) -> int:
 		
 	enemy.character_movement.move(delta)		
 	return EnemyBaseState.State.Moving
+
+
+func _on_boss_change_color() -> void:
+	var enemy := entity as Boss
+	enemy.sprite.play(enemy.node_color_name + " Moving")

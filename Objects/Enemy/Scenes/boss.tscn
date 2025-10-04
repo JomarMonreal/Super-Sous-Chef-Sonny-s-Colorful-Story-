@@ -53,7 +53,6 @@
 [ext_resource type="Texture2D" uid="uid://vk88imlvx34b" path="res://Objects/Enemy/Sprites/Green/tile007.png" id="28_0slia"]
 [ext_resource type="Texture2D" uid="uid://dlv6r4tp50f8q" path="res://Objects/Enemy/Sprites/Blue/tile007.png" id="28_awije"]
 [ext_resource type="Script" uid="uid://bcbgk1fp1jmr4" path="res://Objects/Enemy/enemy_state_manager.gd" id="29_bdb5t"]
-[ext_resource type="Script" uid="uid://ec84adcjxicg" path="res://Objects/Enemy/States/enemy_hurt.gd" id="33_s0xu6"]
 [ext_resource type="Script" uid="uid://b4e0c34megjsp" path="res://Objects/Enemy/enemy_state.gd" id="34_l84p3"]
 [ext_resource type="PackedScene" uid="uid://bf2rkbs7e6h7n" path="res://Base/Scenes/sfx_controller.tscn" id="35_8rihn"]
 [ext_resource type="AudioStream" uid="uid://5uxjoa72vaij" path="res://Objects/Enemy/Sounds/Green/enemy_hurt.wav" id="36_3bns4"]
@@ -84,6 +83,7 @@
 [ext_resource type="Script" uid="uid://be1agp08y5j76" path="res://Objects/Enemy/States/boss_moving.gd" id="78_2o8lx"]
 [ext_resource type="Script" uid="uid://bk0r6wrvyc4mk" path="res://Objects/Enemy/States/boss_attacking.gd" id="79_2o8lx"]
 [ext_resource type="Script" uid="uid://c2n2jwni2rgpu" path="res://Objects/Enemy/States/boss_guarding.gd" id="80_2o8lx"]
+[ext_resource type="Script" uid="uid://cygh7a4ew8mbk" path="res://Objects/Enemy/States/boss_hurt.gd" id="81_2o8lx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i2r1b"]
 animations = [{
@@ -364,7 +364,7 @@ right_ray = NodePath("../ObstacleRightRay")
 visual_path = NodePath("../AnimatedSprite2D")
 
 [node name="HealthController" parent="." instance=ExtResource("3_cy0mw")]
-health = 25
+health = 20
 
 [node name="DashController" parent="." instance=ExtResource("4_w3fon")]
 dash_distance = 40.0
@@ -377,7 +377,7 @@ texture_filter = 1
 position = Vector2(4.999997, -5.9604645e-08)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_i2r1b")
-animation = &"Green Moving"
+animation = &"Red Moving"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.9999999, 3.9999995)
@@ -423,7 +423,7 @@ script = ExtResource("80_2o8lx")
 wait_time = 2.0
 
 [node name="Hurt" type="Node" parent="EnemyStateManager"]
-script = ExtResource("33_s0xu6")
+script = ExtResource("81_2o8lx")
 metadata/_custom_type_script = "uid://b4e0c34megjsp"
 
 [node name="Dead" type="Node" parent="EnemyStateManager"]
@@ -437,6 +437,8 @@ die = Array[AudioStream]([ExtResource("36_3bns4")])
 wait_time = 10.0
 autostart = true
 
+[connection signal="change_color" from="." to="EnemyStateManager/Moving" method="_on_boss_change_color"]
+[connection signal="change_color" from="." to="EnemyStateManager/Attacking" method="_on_boss_change_color"]
 [connection signal="damaged" from="HealthController" to="." method="_on_health_controller_damaged"]
 [connection signal="dead" from="HealthController" to="." method="_on_health_controller_dead"]
 [connection signal="timeout" from="EnemyStateManager/Guarding/GuardDuration" to="EnemyStateManager/Guarding" method="_on_guard_duration_timeout"]

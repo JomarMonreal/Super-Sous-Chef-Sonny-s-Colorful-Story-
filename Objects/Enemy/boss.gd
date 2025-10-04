@@ -1,8 +1,11 @@
 extends CharacterBody2D
 class_name Boss
 
+signal change_color
+
 @export var node_color: ColorController.GameColor
 
+@onready var rainbow_fruit_scene := preload("res://Objects/Fruit/RainboxFruit.tscn")
 @onready var states: EnemyStateManager = $EnemyStateManager
 @onready var character_movement: SideScrollingWalkMovement = $SideScrollingWalkMovement
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -40,12 +43,16 @@ func _on_health_controller_dead() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.5)
 	await tween.finished
+	var rbfruit = rainbow_fruit_scene.instantiate()
+	get_parent().add_child(rbfruit)
+	rbfruit.position = self.position
 	queue_free()
 
 
 func _on_color_switch_timer_timeout() -> void:
 	var colors = ["Red", "Green", "Blue"]
-	var color = colors.pick_random()
+	randomize()
+	var color = colors[randi_range(0,2)]
 	
 	var color_map = {
 		"Red" : ColorController.GameColor.RED,
@@ -53,8 +60,11 @@ func _on_color_switch_timer_timeout() -> void:
 		"Blue" : ColorController.GameColor.BLUE
 	}
 	
+
+	
 	node_color = color_map[color]
 	node_color_name = ColorController.GameColor.keys()[node_color].to_lower().capitalize()
+	emit_signal("change_color")
 	color_switch_timer.start()
 	
 	

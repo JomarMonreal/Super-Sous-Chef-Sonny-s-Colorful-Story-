@@ -31,3 +31,9 @@ func _on_dash_controller_dash_start() -> void:
 	
 	add_child(new_bullet_instance)
 	pass # Replace with function body.
+
+
+func _on_boss_change_color() -> void:
+	var enemy := entity as Boss
+	enemy.sprite.play(enemy.node_color_name + " Attacking")
+	enemy.dash_controller.start_dash(Vector2(enemy.character_movement.direction, 0))
