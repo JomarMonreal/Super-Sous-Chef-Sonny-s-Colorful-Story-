@@ -3,8 +3,6 @@ extends Node
 @export var node_color: ColorController.GameColor = ColorController.GameColor.WHITE
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if get_parent() is not Sprite2D or get_parent() is not AnimatedSprite2D:
-		push_warning("ColorComponent should be a child of Sprite2D or AnimatedSprite2D. Found " + get_parent().get_class())
 	pass # Replace with function body.
 
 

@@ -17,7 +17,8 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("debug_mode"):
 		if not is_debug_mode:
-			colors_eaten = [0,1,2,3,4,5]
+			colors_eaten = [5,4,3,2,1,0]
+			ColorController.current_game_color = ColorController.GameColor.GREEN
 			is_debug_mode = true
 		else:
 			colors_eaten = []
