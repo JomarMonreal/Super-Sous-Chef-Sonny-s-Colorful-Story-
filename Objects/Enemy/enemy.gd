@@ -32,7 +32,8 @@ func _on_health_controller_damaged(amount: float) -> void:
 
 
 func _on_health_controller_dead() -> void:
-	await sfx_controller.play(SFXController.SFX.DIE)
+	if sfx_controller:
+		await sfx_controller.play(SFXController.SFX.DIE)
 	states.change_state(EnemyBaseState.State.Attaking)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color.TRANSPARENT, 0.5)
