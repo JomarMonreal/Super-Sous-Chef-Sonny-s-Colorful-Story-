@@ -14,4 +14,5 @@ func _process(delta: float) -> void:
 
 
 func _on_arena_area_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	$AudioStreamPlayer2D.stop()
+	$FastBg.play()
