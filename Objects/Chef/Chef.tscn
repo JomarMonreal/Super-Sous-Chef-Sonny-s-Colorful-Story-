@@ -271,6 +271,7 @@ health = 3
 
 [node name="DashController" parent="." instance=ExtResource("4_16lfa")]
 dash_distance = 80.0
+dash_speed = 250.0
 dash_cooldown = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

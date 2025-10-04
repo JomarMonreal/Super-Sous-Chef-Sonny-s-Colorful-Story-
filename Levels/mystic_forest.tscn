@@ -7,10 +7,10 @@
 [ext_resource type="TileSet" uid="uid://x70rgc0ncyts" path="res://Level Assets/mystic_tileset.tres" id="4_a2uun"]
 [ext_resource type="PackedScene" uid="uid://ce0unrlovwwyi" path="res://Objects/Chef/Chef.tscn" id="5_fg8fx"]
 [ext_resource type="AudioStream" uid="uid://dj861k1nhs8j1" path="res://Level Assets/mystic.wav" id="7_a2uun"]
-[ext_resource type="PackedScene" path="res://Objects/Fruit/BlueFruit.tscn" id="8_2if0h"]
 [ext_resource type="PackedScene" uid="uid://cjva2rt8jb4jq" path="res://Objects/Enemy/Scenes/GreenEnemy.tscn" id="8_wierf"]
-[ext_resource type="PackedScene" path="res://Objects/Fruit/OrangeFruit.tscn" id="9_sw1yn"]
-[ext_resource type="PackedScene" path="res://Objects/Fruit/RainboxFruit.tscn" id="10_wmnd5"]
+[ext_resource type="PackedScene" uid="uid://csnkjhusfahp2" path="res://Objects/Fruit/OrangeFruit.tscn" id="9_sw1yn"]
+[ext_resource type="PackedScene" uid="uid://dm56axusn0p4o" path="res://Objects/Fruit/RainboxFruit.tscn" id="10_wmnd5"]
+[ext_resource type="PackedScene" uid="uid://3inafho62xxd" path="res://Objects/Fruit/YellowFruit.tscn" id="11_sw1yn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fg8fx"]
 normal = Vector2(-0.0020345051, 0.9999979)
@@ -94,13 +94,13 @@ position = Vector2(650, -255)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBorders/Area2D2"]
 shape = SubResource("RectangleShape2D_wierf")
 
-[node name="BlueFruit" parent="." instance=ExtResource("8_2if0h")]
-position = Vector2(96, -21)
-
 [node name="OrangeFruit" parent="." instance=ExtResource("9_sw1yn")]
 position = Vector2(263, -59)
 
 [node name="RainbowFruit" parent="." instance=ExtResource("10_wmnd5")]
 position = Vector2(130, -278)
+
+[node name="YellowFruit" parent="." instance=ExtResource("11_sw1yn")]
+position = Vector2(97, -14)
 
 [connection signal="body_entered" from="BottomWorldBorder" to="Chef" method="_on_area_2d_3_body_entered"]
