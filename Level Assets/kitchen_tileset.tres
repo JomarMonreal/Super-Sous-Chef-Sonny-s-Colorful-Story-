@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://c7jvw8b2jhocw"]
 
-[ext_resource type="Texture2D" uid="uid://cykvnniwsnqnf" path="res://Level Assets/kitchen_and_desert.png" id="1_5uqlg"]
+[ext_resource type="Texture2D" uid="uid://d102uiuk8q01a" path="res://Level Assets/kitchen_and_desert.png" id="1_5uqlg"]
 [ext_resource type="Texture2D" uid="uid://xp8wjknjim6h" path="res://Level Assets/Assetver1.png" id="1_woqvo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sl8sk"]
