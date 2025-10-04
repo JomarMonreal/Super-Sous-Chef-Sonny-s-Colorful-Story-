@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxecnrau44d4k"]
+
+[ext_resource type="Script" uid="uid://dbsasagp7uhkh" path="res://Base/health_points_ui.gd" id="1_jxb5i"]
+[ext_resource type="Texture2D" uid="uid://bl4u3atqtxcpe" path="res://Objects/Fruit/Sprites/tile006.png" id="2_pl7uv"]
+
+[node name="HealthUI" type="Control"]
+z_index = 100
+layout_mode = 3
+anchors_preset = 0
+offset_left = -152.0
+offset_top = -85.0
+offset_right = -37.0
+offset_bottom = -56.0
+script = ExtResource("1_jxb5i")
+heart_texture = ExtResource("2_pl7uv")
+
+[node name="HeartsContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 35.0
+offset_bottom = 10.0
+scale = Vector2(2.01, 2.01)
+
+[node name="TextureRect" type="TextureRect" parent="HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("2_pl7uv")
+
+[node name="TextureRect2" type="TextureRect" parent="HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("2_pl7uv")
+
+[node name="TextureRect3" type="TextureRect" parent="HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("2_pl7uv")

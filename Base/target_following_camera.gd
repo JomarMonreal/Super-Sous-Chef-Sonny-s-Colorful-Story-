@@ -109,3 +109,7 @@ func _set_transient_zoom_target(scale: float, hold_s: float) -> void:
 
 func _on_chef_dashing() -> void:
 	zoom_out()
+
+
+func _on_chef_hurt(amount: int) -> void:
+	pass # Replace with function body.

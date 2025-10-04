@@ -1,13 +1,14 @@
-[gd_scene load_steps=25 format=4 uid="uid://dnqyeuoys1jmu"]
+[gd_scene load_steps=26 format=4 uid="uid://dnqyeuoys1jmu"]
 
 [ext_resource type="Script" uid="uid://x4447en66rdk" path="res://Base/target_following_camera.gd" id="1_jluyr"]
 [ext_resource type="Texture2D" uid="uid://bblof5pim6rjk" path="res://Level Assets/kitchen.png" id="2_k6unl"]
 [ext_resource type="PackedScene" uid="uid://12r0f6rnk5je" path="res://Base/Scenes/color_component.tscn" id="3_ivwby"]
+[ext_resource type="PackedScene" uid="uid://cxecnrau44d4k" path="res://Levels/HealthUI.tscn" id="4_3echv"]
 [ext_resource type="PackedScene" uid="uid://ce0unrlovwwyi" path="res://Objects/Chef/Chef.tscn" id="4_scder"]
 [ext_resource type="AudioStream" uid="uid://c0xludg2ytus0" path="res://Level Assets/slow_bg.wav" id="5_jluyr"]
 [ext_resource type="TileSet" uid="uid://c7jvw8b2jhocw" path="res://Level Assets/kitchen_tileset.tres" id="5_m008p"]
 [ext_resource type="TileSet" uid="uid://mxahg0mcmres" path="res://Level Assets/better_kitchen_tileset.tres" id="6_06717"]
-[ext_resource type="Texture2D" uid="uid://cykvnniwsnqnf" path="res://Level Assets/kitchen_and_desert.png" id="7_anvgo"]
+[ext_resource type="Texture2D" uid="uid://d102uiuk8q01a" path="res://Level Assets/kitchen_and_desert.png" id="7_anvgo"]
 [ext_resource type="PackedScene" uid="uid://cjva2rt8jb4jq" path="res://Objects/Enemy/Scenes/GreenEnemy.tscn" id="8_h8ft4"]
 [ext_resource type="Texture2D" uid="uid://dljtrs732gdma" path="res://Level Assets/dialogue.png" id="8_k6unl"]
 [ext_resource type="PackedScene" uid="uid://c6yp0q4yto2i6" path="res://Level Assets/moving platform.tscn" id="9_0pf43"]
@@ -122,6 +123,12 @@ texture = ExtResource("2_k6unl")
 
 [node name="ColorComponent" parent="Camera2D/TextureRect" instance=ExtResource("3_ivwby")]
 intensity = 0.75
+
+[node name="HealthUI" parent="Camera2D" instance=ExtResource("4_3echv")]
+offset_left = -119.0
+offset_top = 48.0
+offset_right = -4.0
+offset_bottom = 77.0
 
 [node name="Chef" parent="." instance=ExtResource("4_scder")]
 z_index = 6
@@ -369,4 +376,5 @@ position = Vector2(1917, 29)
 [node name="YellowFruit" parent="." instance=ExtResource("14_ctq47")]
 position = Vector2(2200, -49)
 
+[connection signal="hurt" from="Chef" to="Camera2D/HealthUI" method="_on_chef_hurt"]
 [connection signal="body_entered" from="Area2D3" to="Chef" method="_on_area_2d_3_body_entered"]
