@@ -16,6 +16,7 @@ func take_damage(amount: float)->void:
 		health -= amount
 		
 		if health <= 0:
+			damaged.emit(amount)
 			dead.emit()
 			return
 			

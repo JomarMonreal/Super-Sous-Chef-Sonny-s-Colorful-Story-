@@ -14,6 +14,7 @@ var colors_unlocked: Array[String] = []
 var enemy_entered: Node2D
 
 signal dashing
+signal hurt(amount: int)
 
 
 func _ready() -> void:
@@ -78,3 +79,7 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 		Fruits.colors_eaten.append(area.node_color)
 		area.eat()
 	pass # Replace with function body.
+
+
+func _on_health_controller_damaged(amount: float) -> void:
+	hurt.emit(amount)
