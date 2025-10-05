@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dhkyk2mrnb50j"]
+[gd_scene load_steps=26 format=4 uid="uid://dhkyk2mrnb50j"]
 
 [ext_resource type="Script" uid="uid://bkaog1qwyagi3" path="res://Levels/desert.gd" id="1_4rcxv"]
 [ext_resource type="Script" uid="uid://x4447en66rdk" path="res://Base/target_following_camera.gd" id="1_ardvj"]
@@ -12,8 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://cjva2rt8jb4jq" path="res://Objects/Enemy/Scenes/GreenEnemy.tscn" id="8_thpy6"]
 [ext_resource type="PackedScene" uid="uid://c6yp0q4yto2i6" path="res://Level Assets/moving platform.tscn" id="9_2scnf"]
 [ext_resource type="Texture2D" uid="uid://d102uiuk8q01a" path="res://Level Assets/kitchen_and_desert.png" id="10_i67hi"]
-[ext_resource type="PackedScene" uid="uid://c1rvpwyf4k2cq" path="res://Objects/Fruit/RedFruit.tscn" id="11_enk3p"]
+[ext_resource type="PackedScene" path="res://Objects/Fruit/RedFruit.tscn" id="11_enk3p"]
 [ext_resource type="PackedScene" uid="uid://dudfudc7qqeoh" path="res://Objects/Fruit/GreenFruit.tscn" id="12_6c331"]
+[ext_resource type="PackedScene" uid="uid://bdy3m5pwax0xf" path="res://Base/Scenes/inpupt_settings.tscn" id="15_bgrxs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tm071"]
 size = Vector2(4, 20)
@@ -359,5 +360,10 @@ position = Vector2(1036, -92)
 
 [node name="RedFruit2" parent="." instance=ExtResource("11_enk3p")]
 position = Vector2(1036, -261)
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="InpuptSettings" parent="GUI" instance=ExtResource("15_bgrxs")]
+visible = false
 
 [connection signal="hurt" from="Chef" to="Camera2D/HealthUI" method="_on_chef_hurt"]

@@ -1,3 +1,4 @@
+# from Youtube Tutorial "Easy Input Settings Menu | Let's Godot" (youtube.com/watch?v=ZDPM45cHHIlI)
 extends Node
 
 @onready var pause_menu = $GUI/InpuptSettings
@@ -14,15 +15,3 @@ func _unhandled_input(event: InputEvent) -> void:
 			Engine.time_scale = 1
 			pause_menu.visible = false
 		get_tree().root.get_viewport().set_input_as_handled()
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	ColorController.current_game_color = ColorController.GameColor.YELLOW
-	Fruits.colors_eaten = [ ColorController.GameColor.YELLOW]
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
