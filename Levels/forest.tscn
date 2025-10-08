@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cxecnrau44d4k" path="res://Levels/HealthUI.tscn" id="5_vrdib"]
 [ext_resource type="AudioStream" uid="uid://dq14a46iw5mp1" path="res://Level Assets/jungle.wav" id="6_5dxj7"]
 [ext_resource type="PackedScene" uid="uid://ce0unrlovwwyi" path="res://Objects/Chef/Chef.tscn" id="6_ckj4g"]
-[ext_resource type="PackedScene" path="res://Objects/Fruit/PurpleFruit.tscn" id="9_531a0"]
-[ext_resource type="PackedScene" path="res://Objects/Fruit/BlueFruit.tscn" id="9_fmpjp"]
+[ext_resource type="PackedScene" uid="uid://ckm16h51flrkm" path="res://Objects/Fruit/PurpleFruit.tscn" id="9_531a0"]
+[ext_resource type="PackedScene" uid="uid://c70ssd1f8ef8k" path="res://Objects/Fruit/BlueFruit.tscn" id="9_fmpjp"]
 [ext_resource type="PackedScene" uid="uid://bllhatsjhxu8h" path="res://Objects/Enemy/Scenes/BlueEnemy.tscn" id="10_ckj4g"]
 [ext_resource type="PackedScene" uid="uid://cjva2rt8jb4jq" path="res://Objects/Enemy/Scenes/GreenEnemy.tscn" id="11_ub67l"]
 [ext_resource type="PackedScene" uid="uid://djx4r5pffn40l" path="res://Objects/Enemy/Scenes/OrangeEnemy.tscn" id="12_ckj4g"]
@@ -28,6 +28,8 @@ script = ExtResource("1_fmpjp")
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(21, -11)
 script = ExtResource("1_3v255")
+default_zoom_scale = 3.75
+lerp_speed = 10.5
 target = NodePath("../Chef")
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D"]
