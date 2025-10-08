@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cxecnrau44d4k" path="res://Levels/HealthUI.tscn" id="5_jlwle"]
 [ext_resource type="AudioStream" uid="uid://dj861k1nhs8j1" path="res://Level Assets/mystic.wav" id="7_a2uun"]
 [ext_resource type="PackedScene" uid="uid://cjva2rt8jb4jq" path="res://Objects/Enemy/Scenes/GreenEnemy.tscn" id="8_wierf"]
-[ext_resource type="PackedScene" path="res://Objects/Fruit/OrangeFruit.tscn" id="9_sw1yn"]
+[ext_resource type="PackedScene" uid="uid://csnkjhusfahp2" path="res://Objects/Fruit/OrangeFruit.tscn" id="9_sw1yn"]
 [ext_resource type="PackedScene" uid="uid://bhttpy08e3kc5" path="res://Objects/Enemy/Scenes/boss.tscn" id="12_wmnd5"]
 [ext_resource type="AudioStream" uid="uid://c2gghnxex4fu0" path="res://Level Assets/fast_bg.wav" id="13_jlwle"]
 [ext_resource type="PackedScene" uid="uid://bdy3m5pwax0xf" path="res://Base/Scenes/inpupt_settings.tscn" id="14_tce6i"]
@@ -23,11 +23,13 @@ normal = Vector2(-0.0020345051, 0.9999979)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmnd5"]
 
 [node name="MysticForest2" type="Node2D"]
+position = Vector2(3, -1)
 script = ExtResource("1_wmnd5")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 position = Vector2(21, -11)
 script = ExtResource("1_lswuu")
+default_zoom_scale = 3.75
 target = NodePath("../Chef")
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D"]
