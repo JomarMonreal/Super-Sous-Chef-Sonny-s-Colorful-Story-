@@ -4,7 +4,7 @@ extends Node
 var colors_eaten: Array[ColorController.GameColor] = []
 var is_debug_mode := false
 var fruit_path_map = {
-	ColorController.GameColor.PURPLE: "res://Levels/mystic_forest.tscn",
+	ColorController.GameColor.ORANGE: "res://Levels/mystic_forest.tscn",
 	ColorController.GameColor.RED: "res://Levels/forest.tscn",
 	ColorController.GameColor.YELLOW: "res://Levels/desert.tscn",
 	ColorController.GameColor.WHITE: "res://Levels/win.tscn",

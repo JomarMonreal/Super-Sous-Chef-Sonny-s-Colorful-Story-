@@ -19,8 +19,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ColorController.current_game_color = ColorController.GameColor.PURPLE
-	Fruits.colors_eaten = [ ColorController.GameColor.GREEN,  ColorController.GameColor.RED,  ColorController.GameColor.YELLOW, ColorController.GameColor.BLUE, ColorController.GameColor.PURPLE]
+	ColorController.current_game_color = ColorController.GameColor.ORANGE
+	Fruits.colors_eaten = [ ColorController.GameColor.GREEN,  ColorController.GameColor.RED,  ColorController.GameColor.YELLOW, ColorController.GameColor.BLUE, ColorController.GameColor.ORANGE]
 	pass # Replace with function body.
 
 

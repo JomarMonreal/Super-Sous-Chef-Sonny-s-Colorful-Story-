@@ -8,13 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://cxecnrau44d4k" path="res://Levels/HealthUI.tscn" id="5_vrdib"]
 [ext_resource type="AudioStream" uid="uid://dq14a46iw5mp1" path="res://Level Assets/jungle.wav" id="6_5dxj7"]
 [ext_resource type="PackedScene" uid="uid://ce0unrlovwwyi" path="res://Objects/Chef/Chef.tscn" id="6_ckj4g"]
-[ext_resource type="PackedScene" uid="uid://ckm16h51flrkm" path="res://Objects/Fruit/PurpleFruit.tscn" id="9_531a0"]
 [ext_resource type="PackedScene" uid="uid://c70ssd1f8ef8k" path="res://Objects/Fruit/BlueFruit.tscn" id="9_fmpjp"]
 [ext_resource type="PackedScene" uid="uid://bllhatsjhxu8h" path="res://Objects/Enemy/Scenes/BlueEnemy.tscn" id="10_ckj4g"]
 [ext_resource type="PackedScene" uid="uid://cjva2rt8jb4jq" path="res://Objects/Enemy/Scenes/GreenEnemy.tscn" id="11_ub67l"]
 [ext_resource type="PackedScene" uid="uid://djx4r5pffn40l" path="res://Objects/Enemy/Scenes/OrangeEnemy.tscn" id="12_ckj4g"]
 [ext_resource type="PackedScene" uid="uid://buf87qq5mutkk" path="res://Objects/Enemy/Scenes/RedEnemy.tscn" id="12_vrdib"]
 [ext_resource type="PackedScene" uid="uid://bdy3m5pwax0xf" path="res://Base/Scenes/inpupt_settings.tscn" id="15_5dxj7"]
+[ext_resource type="PackedScene" uid="uid://csnkjhusfahp2" path="res://Objects/Fruit/OrangeFruit.tscn" id="15_hv3l8"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fg8fx"]
 normal = Vector2(-0.0020345051, 0.9999979)
@@ -102,9 +102,6 @@ collision_mask = 5
 position = Vector2(-13.000002, 355.00003)
 rotation = 3.139558
 shape = SubResource("WorldBoundaryShape2D_fg8fx")
-
-[node name="PurpleFruit" parent="." instance=ExtResource("9_531a0")]
-position = Vector2(28, -90)
 
 [node name="BlueFruit" parent="." instance=ExtResource("9_fmpjp")]
 position = Vector2(418, -89)
@@ -194,6 +191,9 @@ position = Vector2(-194, 198)
 
 [node name="InpuptSettings" parent="GUI" instance=ExtResource("15_5dxj7")]
 visible = false
+
+[node name="OrangeFruit" parent="." instance=ExtResource("15_hv3l8")]
+position = Vector2(28, -57)
 
 [connection signal="hurt" from="Chef" to="Camera2D/HealthUI" method="_on_chef_hurt"]
 [connection signal="body_entered" from="Area2D3" to="Chef" method="_on_area_2d_3_body_entered"]

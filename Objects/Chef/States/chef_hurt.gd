@@ -2,7 +2,7 @@ extends ChefBaseState
 
 var oscillation_time: float = 0.0
 var oscillation_speed: float = 5.0          # total hurt duration ≈ 1 / 5 = 0.2s
-var knockback_speed: float = 320.0          # initial horizontal push
+var knockback_speed: float = 600.0          # initial horizontal push
 var knockback_damp: float = 10.0            # how quickly it eases to 0
 
 func enter() -> void:
