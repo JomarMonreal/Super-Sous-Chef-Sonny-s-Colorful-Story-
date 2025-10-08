@@ -193,7 +193,7 @@ position = Vector2(-194, 198)
 visible = false
 
 [node name="OrangeFruit" parent="." instance=ExtResource("15_hv3l8")]
-position = Vector2(28, -57)
+position = Vector2(31, -107)
 
 [connection signal="hurt" from="Chef" to="Camera2D/HealthUI" method="_on_chef_hurt"]
 [connection signal="body_entered" from="Area2D3" to="Chef" method="_on_area_2d_3_body_entered"]
