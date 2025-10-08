@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://w6xa2t5e72u3"]
+[gd_scene load_steps=9 format=3 uid="uid://w6xa2t5e72u3"]
 
 [ext_resource type="Texture2D" uid="uid://dljtrs732gdma" path="res://Level Assets/dialogue.png" id="1_l1r6p"]
 [ext_resource type="FontFile" uid="uid://bg6vs6biwi648" path="res://Level Assets/Higher.otf" id="2_hyu7m"]
+[ext_resource type="AudioStream" uid="uid://cxb3yq7fsg22k" path="res://Level Assets/Smurfs Dancing #shorts.mp3" id="3_hyu7m"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yhn2j"]
 texture = ExtResource("1_l1r6p")
@@ -10,6 +11,67 @@ region_rect = Rect2(0, 0, 64, 96)
 [sub_resource type="LabelSettings" id="LabelSettings_x2s6s"]
 font_size = 100
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_hyu7m"]
+resource_name = "pulse"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.53),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.53),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-600, -250)]
+}
+
+[sub_resource type="Animation" id="Animation_yhn2j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x2s6s"]
+_data = {
+&"RESET": SubResource("Animation_yhn2j"),
+&"pulse": SubResource("Animation_hyu7m")
+}
 
 [node name="Win" type="Node2D"]
 
@@ -30,10 +92,10 @@ anchor_left = 3.287
 anchor_top = -1.437
 anchor_right = 3.287
 anchor_bottom = -1.437
-offset_left = -910.48
-offset_top = 4.4800034
-offset_right = 270.52002
-offset_bottom = 655.48
+offset_left = -904.48
+offset_top = -8.519997
+offset_right = 276.52002
+offset_bottom = 642.48
 theme_override_styles/panel = SubResource("StyleBoxTexture_yhn2j")
 
 [node name="Label" type="Label" parent="Ready/Panel"]
@@ -49,3 +111,14 @@ theme_override_font_sizes/font_size = 19
 text = "YOU
 WIN"
 label_settings = SubResource("LabelSettings_x2s6s")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hyu7m")
+autoplay = true
+parameters/looping = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_x2s6s")
+}
+autoplay = "pulse"

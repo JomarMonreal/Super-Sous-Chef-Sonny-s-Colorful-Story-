@@ -231,9 +231,6 @@ position = Vector2(661, -40)
 position = Vector2(294, 30)
 shape = SubResource("RectangleShape2D_tm071")
 
-[node name="Area2D7" type="Area2D" parent="."]
-position = Vector2(813, -127)
-
 [node name="Area2D8" type="Area2D" parent="."]
 position = Vector2(889, -127)
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cxb3yq7fsg22k"
+path="res://.godot/imported/Smurfs Dancing #shorts.mp3-a83ee81e59886a16fcd3c6bf277a59d0.mp3str"
+
+[deps]
+
+source_file="res://Level Assets/Smurfs Dancing #shorts.mp3"
+dest_files=["res://.godot/imported/Smurfs Dancing #shorts.mp3-a83ee81e59886a16fcd3c6bf277a59d0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
